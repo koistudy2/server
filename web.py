@@ -10,10 +10,12 @@ s_prefix = './static/' #static 파일 디렉토리
 def index():
 	return render_template('basic.html', title="Hello,world!", content="Hello,content!")
 
-@app.route('/static/<filename>')
-def static_files(filename):
-	if os.path.isfile(s_prefix + filename):
-		f = open(s_prefix + filename)
+@app.route('/static/<path:path>')
+def static_files(path):
+	if '.' in path:
+		return '404 Not Found', 404 
+	if os.path.isfile(s_prefix + path):
+		f = open(s_prefix + path)
 		return f.read()
 	else:
 		return '404 Not Found', 404
