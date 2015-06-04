@@ -1,14 +1,44 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template
-import os.path
+from flask import Flask, render_template, session, request
+from flask.ext.session import Session
+import os.path #file exists
+import re #regex
 app = Flask(__name__)
 
 debugMode = True #디버그
-s_prefix = './static/' #static 파일 디렉토리
+s_prefix = './static/' #static 파일 디렉토리:
+
+menus = [{'name': 'Probs'}]
+
+#multilang support
+lang = {}
+with open('./lang.txt') as f:
+	lines = f.readlines()
+name = re.compile('')
+for line in lines:
+	each = re.match('([^.]+)\.([^=]+)=(.*)\n', line)
+	if each:
+		if not (each.group(2)) in lang:
+			lang[each.group(2)] = {}
+		lang[each.group(2)][each.group(1)] = each.group(3)
+
+#session setup
+SESSION_TYPE = 'file'
+app.config.from_object(__name__)
+Session(app)
+app.secret_key = 'ssss542rf33rg242ss'
+
+@app.before_request
+def initApp():
+	session['locale'] = 'gfdsgdsfgsdfgdsfgsdfg'
+	if not 'locale' in session:
+		session['locale'] = request.accept_languages.best_match(['ko', 'en'])
 
 @app.route('/')
 def index():
-	return render_template('basic_template.html', title="Hello,world!", content="Hello,content!")
+	content = ''
+	print session['locale'] + session['locale'] + session['locale']
+	return render_template('basic_template.html', title="Hello,world!", content=content, lang=lang[session['locale']])
 
 @app.route('/static/<path:path>')
 def static_files(path):
@@ -33,4 +63,4 @@ def error_404(error):
 	return error
 
 if __name__ == '__main__':
-    app.run(debug=debugMode)
+	app.run(debug=debugMode)

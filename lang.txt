@@ -1,0 +1,4 @@
+noie8.en=IE <8 not fully supported.
+noie8.ko=IE 8 이하는 제대로 지원하지 않습니다.
+probs.en=Problems
+probs.ko=Problems
