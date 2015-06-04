@@ -1,25 +1,32 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, session, request
-app = Flask(__name__)
-
 import os.path #file exists
-
 import sys #to supress unicodedecodeerror
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
 import httplib, urllib
-
 import json
-
 #custom modules
 import lang
 import configs
 import dbhandler
 
-#session setup
-app.secret_key = open("/dev/random","rb").read(32)
+import random
+import string
 
+app = Flask(__name__)
+
+def include(filename):
+    if os.path.exists(filename): 
+        execfile(filename)
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+#session setup
+if os.path.exists("/dev/random"):
+	app.secret_key = open("/dev/random","rb").read(32)
+else:
+	app.secret_key = ''.join(random.choice(string.ascii_uppercase) for _ in range(32))
+	
 def render(title='KOISTUDYS2', content='', mode=''):
 	return render_template('basic_template.html', title=title, content=content, lang=lang.lang[session.get('locale', 'ko')], menus=configs.menus, session=session, mode=mode)
 
@@ -29,52 +36,16 @@ def initApp():
 	if not 'locale' in session:
 		session['locale'] = request.accept_languages.best_match(['ko', 'en'])
 
-@app.route('/')
-def index():
-	content = ''
-	return render("KOISTUDYS2", "Sample Content")
+include('index.py') #@app.route('/')
 
-@app.route('/signup')
-def signup():
-	return render('KOISTUDYS2', '', 'signup')
+include('signup.py') #@app.route('/signup') @app.route('/signup/submit', methods=['POST'])
 
-@app.route('/signup/submit', methods=['POST'])
-def signup_submit():
-	params = urllib.urlencode({'secret': '6LfC4AcTAAAAAFtmCCOlsAE4kLXSJuNPQu49uiCp', 'response': request.form['g-recaptcha-response']})
-	headers = {"Content-type": "application/x-www-form-urlencoded"}
-	conn = httplib.HTTPSConnection('www.google.com')
-	conn.request("POST", "/recaptcha/api/siteverify", params, headers)
-	res = conn.getresponse()
-	result = json.loads(res.read())
-	if not result['success']:
-		return render('KOISTUDYS2', '', 'signup_err_captcha')
-	else:
-		return render('KOISTUDYS2', 'Signup completed', 'signup_complete')
-	#result = json.load(result_json)
-	#return result
-	#return render('KOISTUDYS2', content, 'signup-submit')
+include('static.py') #@app.route('/static/<path:path>')
 
-@app.route('/static/<path:path>')
-def static_files(path):
-	if '.' in path:
-		return error_404(0)
-	if os.path.isfile(s_prefix + path):
-		f = open(s_prefix + path)
-		return f.read()
-	else:
-		return '404 Not Found', 404
+include('robots.py') #@app.route('/robots.txt')
 
-@app.route('/robots.txt')
-def robots():
-	return 'User-agent: *\r\nAllow: /'
-
-@app.errorhandler(500)
-def error_500(error):
-	return error
-
-@app.errorhandler(404)
-def error_404(error):
-	return render("KOISTUDYS2", "404 Not Found")
+include('error_handler.py') #@app.errorhandler(404) #@app.errorhandler(500)
 
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)
+	
