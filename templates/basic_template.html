@@ -13,6 +13,10 @@
 	<meta property="og:description" content="{{desc}}">
 	<meta property="og:image" content="{{img}}">
 
+	{%if mode == 'signup'%}
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	{%endif%}
+
 	<style type="text/css">
 	body {
 		font-family: 'Apple SD Gothic Neo', '맑은 고딕', sans-serif;
@@ -39,11 +43,22 @@
 				<li><a href="/{{menu.url}}">{{menu.name}}</a></li>
 				{%endfor%}
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				{%if session.username is defined%}
+				<strong>session.username</strong>
+				{%else%}
+				<a href="/signin" class="btn btn-info navbar-btn">{{lang['signin']}}</a>
+				<a href="/signup" class="btn btn-success navbar-btn">{{lang['signup']}}</a>
+				{%endif%}
+			</ul>
 		</div>
 	</div>
 </nav>
 <div class="container">
 {{content}}
+{%if mode == 'signup'%}
+{%include 'signup.html'%}
+{%endif%}
 <hr>
 <footer>
 <p>&copy; 2015</p>
