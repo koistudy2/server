@@ -18,6 +18,10 @@ def static_files(filename):
 	else:
 		return '404 Not Found', 404
 
+@app.route('/robots.txt')
+def robots():
+	return 'User-agent: *\r\nAllow: /'
+
 @app.errorhandler(500)
 def error_500(error):
 	return error
