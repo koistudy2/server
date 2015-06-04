@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, session, request
-from flask.ext.session import Session
 import os.path #file exists
 import re #regex
 app = Flask(__name__)
@@ -23,9 +22,6 @@ for line in lines:
 		lang[each.group(2)][each.group(1)] = each.group(3)
 
 #session setup
-SESSION_TYPE = 'file'
-app.config.from_object(__name__)
-Session(app)
 app.secret_key = 'ssss542rf33rg242ss'
 
 @app.before_request
@@ -63,4 +59,4 @@ def error_404(error):
 	return error
 
 if __name__ == '__main__':
-	app.run(debug=debugMode)
+	app.run(debug=debugMode, port=5000)
