@@ -1,25 +1,14 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, session, request
 import os.path #file exists
-import re #regex
 app = Flask(__name__)
 
+import lang #multilang support
+
+#configs
 debugMode = True #디버그
 s_prefix = './static/' #static 파일 디렉토리:
-
 menus = [{'name': 'Probs'}]
-
-#multilang support
-lang = {}
-with open('./lang.txt') as f:
-	lines = f.readlines()
-name = re.compile('')
-for line in lines:
-	each = re.match('([^.]+)\.([^=]+)=(.*)\n', line)
-	if each:
-		if not (each.group(2)) in lang:
-			lang[each.group(2)] = {}
-		lang[each.group(2)][each.group(1)] = each.group(3)
 
 #session setup
 app.secret_key = 'ssss542rf33rg242ss'
