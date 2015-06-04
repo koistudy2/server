@@ -7,7 +7,7 @@ def index():
 	return 'test'
 
 @app.route('/static/<filename>')
-def static(filename):
+def static_files(filename):
 	f = open('./static/' + filename)
 	return f.read()
 
