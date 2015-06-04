@@ -6,20 +6,24 @@ app = Flask(__name__)
 import lang #multilang support
 import configs
 
+import sys #to supress unicodedecodeerror
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 #session setup
-app.secret_key = 'ssss542rf33rg242ss'
+app.secret_key = open("/dev/random","rb").read(32)
 
 @app.before_request
 def initApp():
-	session['locale'] = 'gfdsgdsfgsdfgdsfgsdfg'
+	session['locale'] = 'ko'
 	if not 'locale' in session:
 		session['locale'] = request.accept_languages.best_match(['ko', 'en'])
 
 @app.route('/')
 def index():
 	content = ''
-	print session['locale'] + session['locale'] + session['locale']
-	return render_template('basic_template.html', title="Hello,world!", content=content, lang=lang.lang[session['locale']])
+	print lang.lang['ko']['noie8']
+	return render_template('basic_template.html', title="Hello,world!", content=content, lang=lang.lang[session.get('locale', 'ko')])
 
 @app.route('/static/<path:path>')
 def static_files(path):
