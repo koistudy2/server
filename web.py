@@ -13,6 +13,9 @@ sys.setdefaultencoding('utf-8')
 #session setup
 app.secret_key = open("/dev/random","rb").read(32)
 
+def render(title, content):
+	return render_template('basic_template.html', title=title, content=content, lang=lang.lang[session.get('locale', 'ko')], menus=configs.menus)
+
 @app.before_request
 def initApp():
 	session['locale'] = 'ko'
@@ -22,8 +25,7 @@ def initApp():
 @app.route('/')
 def index():
 	content = ''
-	print lang.lang['ko']['noie8']
-	return render_template('basic_template.html', title="Hello,world!", content=content, lang=lang.lang[session.get('locale', 'ko')])
+	return render("KOISTUDYS2", "Sample Content")
 
 @app.route('/static/<path:path>')
 def static_files(path):
@@ -45,7 +47,7 @@ def error_500(error):
 
 @app.errorhandler(404)
 def error_404(error):
-	return error
+	return render("KOISTUDYS2", "404 Not Found")
 
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)
