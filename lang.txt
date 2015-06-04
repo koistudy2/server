@@ -18,3 +18,7 @@ nickname.en=Nickname
 nickname.ko=닉네임
 email.en=Email
 email.ko=이메일
+signup_err_captcha.en=Captcha error
+signup_err_captcha.ko=자동 가입 방지용 문자를 잘못 입력하셨습니다.
+back.en=Back
+back.ko=뒤로
