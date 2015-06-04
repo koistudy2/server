@@ -6,6 +6,13 @@
 	<script src="/static/jquery2.js"></script>
 	<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" />
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:title" content="{{title}}">
+	<meta property="og:description" content="{{desc}}">
+	<meta property="og:image" content="{{img}}">
+
 	<style type="text/css">
 	body {
 		font-family: 'Apple SD Gothic Neo', '맑은 고딕', sans-serif;
@@ -13,19 +20,27 @@
 	</style>
 </head>
 <body>
-	<nav class="tab-bar">
-      <section class="left-small">
-        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
-
-      <section class="middle tab-bar-section">
-        <h1 class="title">Foundation</h1>
-      </section>
-
-      <section class="right-small">
-        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
-    </nav>
-	{{content}}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/" style="color: white">KOISTUDYS2</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+		</div>
+	</div>
+</nav>
+<div class="container">
+{{content}}
+<hr>
+<footer>
+<p>&copy; {{copyright}} 2015</p>
+</footer>
+</div>
 </body>
 </html>

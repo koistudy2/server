@@ -8,7 +8,7 @@ s_prefix = './static/' #static 파일 디렉토리
 
 @app.route('/')
 def index():
-	return render_template('basic.html', title="Hello,world!", content="Hello,content!")
+	return render_template('basic_template.html', title="Hello,world!", content="Hello,content!")
 
 @app.route('/static/<path:path>')
 def static_files(path):
