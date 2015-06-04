@@ -29,7 +29,6 @@ def index():
 
 @app.route('/signup')
 def signup():
-	content = ''
 	return render('KOISTUDYS2', content, 'signup')
 
 @app.route('/static/<path:path>')
