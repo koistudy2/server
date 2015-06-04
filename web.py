@@ -1,15 +1,30 @@
 # -*- coding: utf-8 -*-
-from flask import Flask
+from flask import Flask, render_template
+import os.path
 app = Flask(__name__)
+
+debugMode = True #디버그
+s_prefix = './static/' #static 파일 디렉토리
 
 @app.route('/')
 def index():
-	return 'test'
+	return render_template('basic.html', title="Hello,world!", content="Hello,content!")
 
 @app.route('/static/<filename>')
 def static_files(filename):
-	f = open('./static/' + filename)
-	return f.read()
+	if os.path.isfile(s_prefix + filename):
+		f = open(s_prefix + filename)
+		return f.read()
+	else:
+		return '404 Not Found', 404
+
+@app.errorhandler(500)
+def error_500(error):
+	return error
+
+@app.errorhandler(404)
+def error_404(error):
+	return error
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=debugMode)
