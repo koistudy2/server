@@ -4,11 +4,7 @@ import os.path #file exists
 app = Flask(__name__)
 
 import lang #multilang support
-
-#configs
-debugMode = True #디버그
-s_prefix = './static/' #static 파일 디렉토리:
-menus = [{'name': 'Probs'}]
+import configs
 
 #session setup
 app.secret_key = 'ssss542rf33rg242ss'
@@ -23,7 +19,7 @@ def initApp():
 def index():
 	content = ''
 	print session['locale'] + session['locale'] + session['locale']
-	return render_template('basic_template.html', title="Hello,world!", content=content, lang=lang[session['locale']])
+	return render_template('basic_template.html', title="Hello,world!", content=content, lang=lang.lang[session['locale']])
 
 @app.route('/static/<path:path>')
 def static_files(path):
@@ -48,4 +44,4 @@ def error_404(error):
 	return error
 
 if __name__ == '__main__':
-	app.run(debug=debugMode, port=5000)
+	app.run(debug=configs.debugMode, port=5000)
