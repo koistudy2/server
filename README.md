@@ -1,6 +1,6 @@
 #koistudy 2
 
-Based on: **Python 2.6**, **Flask**, **Jinja2**
+Based on: **Python 2.6**, **Flask**, **Jinja2**, **MongoDB**
 
 ----------
 ##Installing requirements
