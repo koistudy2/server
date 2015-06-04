@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, session, request
 import os.path #file exists
-import sys #to supress unicodedecodeerror
 import httplib, urllib
 import json
 #custom modules
@@ -18,6 +17,7 @@ def include(filename):
     if os.path.exists(filename): 
         execfile(filename)
 
+import sys #to supress unicodedecodeerror
 reload(sys)
 sys.setdefaultencoding('utf-8')
 

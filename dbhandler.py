@@ -2,4 +2,5 @@
 import pymongo
 from pymongo import MongoClient
 dbclient = MongoClient('localhost', 27017)
-db_members = dbclient.members
+db = dbclient.db_main
+col_members = db.members
