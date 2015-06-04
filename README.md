@@ -1,5 +1,9 @@
-재현이 기여어 <3
+#koistudy 2
 
+Based on: **Python 2.6**, **Flask**, **Jinja2**
 
-easy_install Flask
-easy_install Flask_session 
+----------
+##Installing requirements
+
+<pre>$ easy_install Flask</pre>
+<pre>$ easy_install Flask_session</pre>
