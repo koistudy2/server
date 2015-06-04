@@ -5,5 +5,6 @@ Based on: **Python 2.6**, **Flask**, **Jinja2**
 ----------
 ##Installing requirements
 
-<pre>$ easy_install Flask</pre>
-<pre>$ easy_install Flask_session</pre>
+<pre>$ sudo easy_install Flask</pre>
+<pre>$ sudo easy_install Flask_session</pre>
+<pre>$ sudo easy_install pymongo</pre>
