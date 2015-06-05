@@ -1,4 +1,4 @@
-#Logic Related to robots.txt
+#Logic Related to stats.html
 
 @app.route('/stats')
 def stats():
