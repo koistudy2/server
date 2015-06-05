@@ -15,7 +15,7 @@ def signup_submit():
 	result = json.loads(res.read())
 	import re #wth is this? this actually solved the problem but i have no idea
 	if not result['success']:
-		return render('KOISTUDYS2', '', 'signup_err_captcha')
+		return newrender('title_signup', '', 'signup_err.html', 'signup_err_captcha')
 	else:
 		if re.match(u'^[a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣ0-9_\\-.]{4,20}$', request.form['username']):
 			if re.match('^.{6,200}$', request.form['password']):
@@ -30,14 +30,14 @@ def signup_submit():
 								import bcrypt
 								human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'], bcrypt.gensalt()), "name": request.form['name'], "email": request.form['email']}
 								dbhandler.col_members.insert_one(human)
-								return render('KOISTUDYS2', lang.lang[session.get('locale', 'ko')]['signup_complete'], 'signup_complete')
+								return newrender('title_signup', lang.lang[session.get('locale', 'ko')]['signup_complete'])
 						else:
-							return render('KOISTUDYS2', '', 'signup_err_email')
+							return newrender('title_signup', '', 'signup_err.html', 'signup_err_email')
 					else:
-						return render('KOISTUDYS2', '', 'signup_err_name')
+						return newrender('title_signup', '', 'signup_err.html', 'signup_err_name')
 				else:
-					return render('KOISTUDYS2', '', 'signup_err_pwmatch')
+					return newrender('title_signup', '', 'signup_err.html', 'signup_err_pwmatch')
 			else:
-				return render('KOISTUDYS2', '', 'signup_err_password')
+				return newrender('title_signup', '', 'signup_err.html', 'signup_err_password')
 		else:
-			return render('KOISTUDYS2', '', 'signup_err_username')
+			return newrender('title_signup', '', 'signup_err.html', 'signup_err_username')
