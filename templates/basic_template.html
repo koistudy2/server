@@ -45,7 +45,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				{%if session.username is defined%}
-				<strong>{{session.username}}</strong>
+				<li><a href="/user"><strong>{{session.username}}</strong></a></li>
 				{%else%}
 				<a href="/login" class="btn btn-info navbar-btn">{{lang['signin']}}</a>
 				<a href="/signup" class="btn btn-success navbar-btn">{{lang['signup']}}</a>
@@ -64,6 +64,9 @@
 {%endif%}
 {%if mode == 'signup_err_captcha' or mode == 'signup_err_username' or mode == 'signup_err_password' or mode == 'signup_err_pwmatch' or mode == 'signup_err_name' or mode == 'signup_err_email'%}
 {%include 'signup_err.html'%}
+{%endif%}
+{%if mode == 'login_err_username' or mode == 'login_err_pw'%}
+{%include 'login_err.html'%}
 {%endif%}
 <hr>
 <footer>

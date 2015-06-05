@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, redirect
 import os.path #file exists
 import httplib, urllib
 import json

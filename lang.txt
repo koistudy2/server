@@ -32,3 +32,7 @@ signup_err_email.en=Invalid email
 signup_err_email.ko=이메일 주소가 잘못되었습니다.
 back.en=Back
 back.ko=뒤로
+login_err_pw.en=Username and/or password do not match.
+login_err_pw.ko=아이디 또는 비밀번호가 잘못되었습니다.
+login_err_username.en=Username and/or password do not match.
+login_err_username.ko=아이디 또는 비밀번호가 잘못되었습니다.
