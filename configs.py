@@ -9,6 +9,6 @@ menus = [{'name': 'Probs', 'url': 'probs'},
 	{'name': 'Contests', 'url': 'contest'},
 	{'name': 'Board', 'url': 'board'},
 	{'name': 'Stats', 'url': 'stats'}]
-t_prefix = 'KOISTUDYS2'
+t_prefix = 'KOISTUDYS2' #title prefix
 
 #configure DB in dbhandler.py

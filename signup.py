@@ -3,7 +3,7 @@
 
 @app.route('/signup')
 def signup():
-	return render('KOISTUDYS2', '', 'signup')
+	return newrender('Sign up', '', 'signup.html')
 
 @app.route('/signup/submit', methods=['POST'])
 def signup_submit():
