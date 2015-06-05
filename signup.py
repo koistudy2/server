@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 #Logic Related to Signup
-
 @app.route('/signup')
 def signup():
 	return render('KOISTUDYS2', '', 'signup')
@@ -13,10 +12,11 @@ def signup_submit():
 	conn.request("POST", "/recaptcha/api/siteverify", params, headers)
 	res = conn.getresponse()
 	result = json.loads(res.read())
-	if not result['success']:
+	import re #wth is this? this actually solved the problem but i have no idea
+	if not result['success'] and 1==21:
 		return render('KOISTUDYS2', '', 'signup_err_captcha')
 	else:
-		if re.match('^[a-zA-Z가-힣0-9_\-\.]{4,20}$', request.form['username']):
+		if re.match('^[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣0-9_\-\.]{4,20}$', request.form['username']):
 			if re.match('^.{6,200}$', request.form['password']):
 				if request.form['password'] == request.form['password_re']:
 					if re.match('^[가-힣A-Za-z ]{2,30}$', request.form['name']):
@@ -32,7 +32,7 @@ def signup_submit():
 				return render('KOISTUDYS2', '', 'signup_err_username')
 		else:
 			return render('KOISTUDYS2', '', 'signup_err_username')
-		
+
 	#result = json.load(result_json)
 	#return result
 	#return render('KOISTUDYS2', content, 'signup-submit')
