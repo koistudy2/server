@@ -7,31 +7,12 @@
 					<th>Number</th>
 					<th>Best Verdict</th>
 					<th>Name</th>
-					<th>Source</th>
 					<th>Solved</th>
 					<th>Tried</th>
 					<th>Diff</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>AC</td>
-					<td>Hello World</td>
-					<td></td>
-					<td>1</td>
-					<td>1</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>WA</td>
-					<td>Goodbye Cruel World</td>
-					<td>Hell</td>
-					<td>0</td>
-					<td>666</td>
-					<td>9</td>
-				</tr>
 				{%for eachprob in problist%}
 				<tr>
 					<td>{{eachprob.num}}</td>
@@ -42,6 +23,14 @@
 					<td>{{eachprob.diff}}</td>
 				</tr>
 				{%endfor%}
+				<tr>
+					<td>3</td>
+					<td>WA</td>
+					<td>Nogada</td>
+					<td>1</td>
+					<td>1</td>
+					<td>999</td>
+				</tr>
 			</tbody>
 		</table>
 		</div>
