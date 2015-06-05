@@ -34,7 +34,7 @@ $ sudo apt-get update
 $ sudo apt-get install -y mongodb-org</pre>
 
 ###[py-bcrypt](http://www.mindrot.org/projects/py-bcrypt/)
- - Download the archive
+ - Download the archive at https://code.google.com/p/py-bcrypt/downloads/list
  - Unpack the archive, and run setup.py
 
 ----------
