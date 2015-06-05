@@ -37,7 +37,3 @@ def signup_submit():
 				return render('KOISTUDYS2', '', 'signup_err_password')
 		else:
 			return render('KOISTUDYS2', '', 'signup_err_username')
-
-	#result = json.load(result_json)
-	#return result
-	#return render('KOISTUDYS2', content, 'signup-submit')

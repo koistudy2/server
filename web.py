@@ -40,7 +40,7 @@ include('index.py') #@app.route('/')
 
 include('signup.py') #@app.route('/signup') @app.route('/signup/submit', methods=['POST'])
 
-include('login.py') #@app.route('/login') @app.route('/login/submit', methods=['POST'])
+include('login.py') #@app.route('/login') @app.route('/login/submit', methods=['POST']) @app.route('/logout')
 
 include('static.py') #@app.route('/static/<path:path>')
 

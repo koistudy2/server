@@ -7,5 +7,4 @@ menus = [{'name': 'Probs', 'url': 'probs'},
 	{'name': 'Status', 'url': 'status'},
 	{'name': 'Ranks', 'url': 'ranks'},
 	{'name': 'Contests', 'url': 'contest'},
-	{'name': 'Board', 'url': 'board'},
-	{'name': 'Mypage', 'url': 'mypage'}]
+	{'name': 'Board', 'url': 'board'}]

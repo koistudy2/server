@@ -46,6 +46,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				{%if session.username is defined%}
 				<li><a href="/user"><strong>{{session.username}}</strong></a></li>
+				<li><a href="/logout">{{lang['logout']}}</a></li>
 				{%else%}
 				<a href="/login" class="btn btn-info navbar-btn">{{lang['signin']}}</a>
 				<a href="/signup" class="btn btn-success navbar-btn">{{lang['signup']}}</a>
