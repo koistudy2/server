@@ -9,11 +9,11 @@ Based on: **Python 2.6**, **Flask**, **Jinja2**, **MongoDB**, **py-bcrypt**
 
 ###Python modules
 ####Installing easy_install (on CentOS/RHEL/Fedora)
-<pre>$ sudo yum install python-setuptools </pre>
+<pre>$ sudo yum install python-pip </pre>
 ####Installing Flask
-<pre>$ sudo easy_install Flask</pre>
+<pre>$ sudo pip install Flask</pre>
 ####Installing PyMongo
-<pre>$ sudo easy_install pymongo</pre>
+<pre>$ sudo pip install pymongo</pre>
 
 ###MongoDB
 #### OS X
@@ -39,21 +39,14 @@ $ echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/
 $ sudo apt-get update
 $ sudo apt-get install -y mongodb-org</pre>
 
-###[py-bcrypt](http://www.mindrot.org/projects/py-bcrypt/)
- - Install Python development package.
-
-####CentOS/RHEL/Fedora
-<pre>$ sudo yum install python-devel</pre>
-
-####Ubuntu
-<pre>$ sudo apt-get install python-dev</pre>
- - Download the archive at https://code.google.com/p/py-bcrypt/downloads/list
- - Unpack the archive, and run setup.py
+###[bcrypt](https://github.com/dstufft/bcrypt/)
+####CentOS/RHEL/Fedora/Ubuntu
+<pre>$ sudo pip install bcrypt</pre>
 
 ----------
 ##Let's run!
  - You have to start mongod first
-<pre>$ mongod</pre>
+<pre>$ sudo service mongod start</pre>
  - Now, type following in your working directory on another terminal
 <pre>$ python web.py</pre>
  - Type http://localhost:5000 in your browser and watch what happens
