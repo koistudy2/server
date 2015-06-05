@@ -11,3 +11,5 @@ Based on: **Python 2.6**, **Flask**, **Jinja2**, **MongoDB**
 
 ###MongoDB
 <pre>$ brew install mongodb</pre>
+
+###[py-bcrypt](http://www.mindrot.org/projects/py-bcrypt/)
