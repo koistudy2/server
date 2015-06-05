@@ -61,4 +61,5 @@ title_user.en=User
 title_user.ko=사용자
 title_error.en=Error
 title_error.ko=오류
-
+title_probs.en=Problems
+title_probs.ko=문제

@@ -1,38 +1,25 @@
+{%include '_header.html'%}
 <div class="row">
-	<form action="/login/submit" method="POST" class="col-md-4">
-		<div class="container">
-	 	<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th>Number</th>
-					<th>Best Verdict</th>
-					<th>Name</th>
-					<th>Solved</th>
-					<th>Tried</th>
-					<th>Diff</th>
-				</tr>
-			</thead>
-			<tbody>
-				{%for eachprob in problist%}
-				<tr>
-					<td>{{eachprob.num}}</td>
-					<td>{{eachprob.verdict}}</td>
-					<td>{{eachprob.name}}</td>
-					<td>{{eachprob.solved}}</td>
-					<td>{{eachprob.tried}}</td>
-					<td>{{eachprob.diff}}</td>
-				</tr>
+	<div class="container">
+		<table class="table table-bordered">
+		<thead>
+			<tr>
+				{%for key,name in data.key_list%}
+				<th>{{name}}</th>
 				{%endfor%}
-				<tr>
-					<td>3</td>
-					<td>WA</td>
-					<td>Nogada</td>
-					<td>1</td>
-					<td>1</td>
-					<td>999</td>
-				</tr>
-			</tbody>
-		</table>
-		</div>
-	</form>
+			</tr>
+		</thead>
+		<tbody>
+			{%for eachprob in data.submit_list%}
+			<tr>
+				{%for key,name in data.key_list%}
+				<td>{{eachprob[key]}}</td>
+				{%endfor%}
+			</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+	</div>
 </div>
+{%include '_footer.html'%}
+
