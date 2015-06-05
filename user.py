@@ -1,13 +1,5 @@
-#Logic Related to robots.txt
+#Logic Related to users page
 
-@app.route('/robots.txt')
-def robots():
+@app.route('/user')
+def user():
 	return 'User-agent: *\r\nAllow: /'
-
-@app.route('/humans.txt')
-def humans():
-	return """User-agent: *
-Allow: /
-Disallow: /admin
-User-agent: Administrator
-Allow: /admin"""
