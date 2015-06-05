@@ -28,10 +28,10 @@ def login_submit():
 				log = {"date": datetime.datetime.now(), "type": "login", "result": "succeed", "username": request.form['username'], "ip": request.remote_addr}
 				dbhandler.col_logs.insert_one(log)
 				return redirect('/')
-		else:
-			log = {"date": datetime.datetime.now(), "type": "login", "result": "wrongpw", "username": request.form['username'], "ip": request.remote_addr}
-			dbhandler.col_logs.insert_one(log)
-			return render('KOISTUDYS2', '', 'login_err_pw')
+			else:
+				log = {"date": datetime.datetime.now(), "type": "login", "result": "wrongpw", "username": request.form['username'], "ip": request.remote_addr}
+				dbhandler.col_logs.insert_one(log)
+				return render('KOISTUDYS2', '', 'login_err_pw')
 	except IndexError:
 		log = {"date": datetime.datetime.now(), "type": "login", "result": "wrongusername", "username": request.form['username'], "ip": request.remote_addr}
 		dbhandler.col_logs.insert_one(log)
