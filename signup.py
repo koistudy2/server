@@ -30,7 +30,7 @@ def signup_submit():
 								import bcrypt
 								human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'], bcrypt.gensalt()), "name": request.form['name'], "email": request.form['email']}
 								dbhandler.col_members.insert_one(human)
-								return render('KOISTUDYS2', 'Signup completed', 'signup_complete')
+								return render('KOISTUDYS2', lang.lang[session.get('locale', 'ko')]['signup_complete'], 'signup_complete')
 						else:
 							return render('KOISTUDYS2', '', 'signup_err_email')
 					else:
