@@ -8,4 +8,4 @@ def static_files(path):
 		f = open(s_prefix + path)
 		return f.read()
 	else:
-		return '404 Not Found', 404
+		return error_404(0)

@@ -2,4 +2,4 @@
 
 @app.route('/user')
 def user():
-	return 'User-agent: *\r\nAllow: /'
+	return newrender('title_user', '', 'user.html')

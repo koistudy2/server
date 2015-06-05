@@ -2,4 +2,4 @@
 
 @app.route('/stats')
 def stats():
-	return render('KOISTUDYS2', '', 'stats')
+	return newrender('title_stats', '', 'stats.html')

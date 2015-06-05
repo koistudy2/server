@@ -55,3 +55,6 @@ title_404.en=404 Not Found
 title_404.ko=404 Not Found
 title_500.en=500 Internal Server Error
 title_500.ko=500 Internal Server Error
+title_stats.en=Statistics
+title_stats.ko=통계
+

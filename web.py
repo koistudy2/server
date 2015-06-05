@@ -27,7 +27,7 @@ if os.path.exists("/dev/random"):
 else:
 	app.secret_key = ''.join(random.choice(string.ascii_uppercase) for _ in range(32))
 
-def newrender(title, content, filename='basic_new.html', mode=''):
+def newrender(title, content, filename='_basic.html', mode=''):
 	return render_template(filename, title=configs.t_prefix + ' - ' + lang.lang[session.get('locale', 'ko')][title], content=content, lang=lang.lang[session.get('locale', 'ko')], menus=configs.menus, session=session, mode=mode)
 
 @app.before_request
