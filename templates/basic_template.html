@@ -59,7 +59,7 @@
 {%if mode == 'signup'%}
 {%include 'signup.html'%}
 {%endif%}
-{%if (mode == 'signup_err_captcha' or mode == 'signup_err_username' or mode='signup_err_password' or mode == 'signup_err_pwmatch' or mode == 'signup_err_name' or mode == 'signup_err_email')%}
+{%if mode == 'signup_err_captcha' or mode == 'signup_err_username' or mode == 'signup_err_password' or mode == 'signup_err_pwmatch' or mode == 'signup_err_name' or mode == 'signup_err_email'%}
 {%include 'signup_err.html'%}
 {%endif%}
 <hr>
