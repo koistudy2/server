@@ -57,4 +57,8 @@ title_500.en=500 Internal Server Error
 title_500.ko=500 Internal Server Error
 title_stats.en=Statistics
 title_stats.ko=통계
+title_user.en=User
+title_user.ko=사용자
+title_error.en=Error
+title_error.ko=오류
 
