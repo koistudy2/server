@@ -42,3 +42,4 @@ $ sudo apt-get install -y mongodb-org</pre>
  - Type following in your working directory
  - You have to start mongod first
 <pre>$ python web.py</pre>
+ - Type http://localhost:5000 in your browser and watch what happens
