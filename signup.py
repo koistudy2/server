@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 #Logic Related to Signup
 
-import sys #to supress unicodedecodeerror
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
 @app.route('/signup')
 def signup():
 	return render('KOISTUDYS2', '', 'signup')
