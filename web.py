@@ -30,6 +30,9 @@ else:
 def render(title='KOISTUDYS2', content='', mode=''):
 	return render_template('basic_template.html', title=title, content=content, lang=lang.lang[session.get('locale', 'ko')], menus=configs.menus, session=session, mode=mode)
 
+def renderprob(problist, title='KOISTUDYS2', content='', mode=''):
+	return render_template('basic_template.html', title=title, content=content, lang=lang.lang[session.get('locale', 'ko')], menus=configs.menus, session=session, mode=mode, problist=problist)
+
 @app.before_request
 def initApp():
 	session['locale'] = 'ko'

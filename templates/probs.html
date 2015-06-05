@@ -12,10 +12,10 @@
 					<th>Tried</th>
 					<th>Diff</th>
 				</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
 					<td>AC</td>
 					<td>Hello World</td>
 					<td></td>
@@ -31,8 +31,18 @@
 					<td>0</td>
 					<td>666</td>
 					<td>9</td>
-				  </tr>
-				</tbody>
+				</tr>
+				{%for eachprob in problist%}
+				<tr>
+					<td>{{eachprob.num}}</td>
+					<td>{{eachprob.verdict}}</td>
+					<td>{{eachprob.name}}</td>
+					<td>{{eachprob.solved}}</td>
+					<td>{{eachprob.tried}}</td>
+					<td>{{eachprob.diff}}</td>
+				</tr>
+				{%endfor%}
+			</tbody>
 		</table>
 		</div>
 	</form>
