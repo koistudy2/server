@@ -63,7 +63,7 @@
 {%if mode == 'login'%}
 {%include 'login.html'%}
 {%endif%}
-{%if mode == 'signup_err_captcha' or mode == 'signup_err_username' or mode == 'signup_err_password' or mode == 'signup_err_pwmatch' or mode == 'signup_err_name' or mode == 'signup_err_email'%}
+{%if mode == 'signup_err_captcha' or mode == 'signup_err_username' or mode == 'signup_err_password' or mode == 'signup_err_pwmatch' or mode == 'signup_err_name' or mode == 'signup_err_email' or mode == 'signup_err_iddup'%}
 {%include 'signup_err.html'%}
 {%endif%}
 {%if mode == 'login_err_username' or mode == 'login_err_pw'%}
