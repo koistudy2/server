@@ -25,12 +25,12 @@ def signup_submit():
 							import dbhandler
 							try:
 								idchecker = dbhandler.col_members.find({"username": request.form['username']})[0]
+								return render('KOISTUDYS2', '', 'signup_err_iddup')
+							except IndexError:
 								import bcrypt
 								human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'], bcrypt.gensalt()), "name": request.form['name'], "email": request.form['email']}
 								dbhandler.col_members.insert_one(human)
 								return render('KOISTUDYS2', 'Signup completed', 'signup_complete')
-							except IndexError:
-								return render('KOISTUDYS2', '', 'signup_err_iddup')
 						else:
 							return render('KOISTUDYS2', '', 'signup_err_email')
 					else:
