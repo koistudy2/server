@@ -55,6 +55,8 @@ include('stats.py') #@app.route('/stats')
 
 include('probs.py') #@app.route('/probs')
 
+include('user.py') #@app.route('/user')
+
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)
 	
