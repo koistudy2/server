@@ -3,6 +3,9 @@
 #configs
 debugMode = True #디버그
 s_prefix = './static/' #static 파일 디렉토리:
-menus = [{'name': 'Judges', 'url': 'judges'},
+menus = [{'name': 'Probs', 'url': 'probs'},
+	{'name': 'Status', 'url': 'status'},
 	{'name': 'Ranks', 'url': 'ranks'},
-	{'name': 'Probs', 'url': 'probs'}]
+	{'name': 'Contests', 'url': 'contest'},
+	{'name': 'Board', 'url': 'board'},
+	{'name': 'Mypage', 'url': 'mypage'}]
