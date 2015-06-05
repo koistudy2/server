@@ -11,11 +11,11 @@ Based on: **Python 2.6**, **Flask**, **Jinja2**, **MongoDB**, **py-bcrypt**
 
 ###MongoDB
 #### OS X
-<pre>$ sudo ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-$ sudo brew install mongodb
-$ sudo mkdir -p /data/db
-$ sudo chmod 777 -p /data/db
-$ mongod</pre>
+<pre> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ brew install mongodb
+ sudo mkdir -p /data/db
+ sudo chmod 777 -p /data/db
+ mongod</pre>
 
 #### CentOS / Fedora / RHEL (x86_64 system, change baseurl to i686 on i686 system)
 - Add following to /etc/yum.repos.d/mongodb-org-3.0.repo
