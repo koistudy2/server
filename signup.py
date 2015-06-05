@@ -3,7 +3,7 @@
 
 @app.route('/signup')
 def signup():
-	return newrender('Sign up', '', 'signup.html')
+	return newrender('title_signup', '', 'signup.html')
 
 @app.route('/signup/submit', methods=['POST'])
 def signup_submit():

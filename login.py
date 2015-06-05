@@ -3,7 +3,7 @@
 
 @app.route('/login')
 def login():
-	return render('KOISTUDYS2', '', 'login')
+	return newrender('title_login', '', 'login.html')
 
 @app.route('/login/submit', methods=['POST'])
 def login_submit():
