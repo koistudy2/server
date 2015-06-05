@@ -3,4 +3,4 @@
 @app.route('/')
 def index():
 	content = ''
-	return render("KOISTUDYS2", "Sample Content")
+	return newrender("title_main", "Sample Content")
