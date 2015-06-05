@@ -7,6 +7,7 @@ menus = [{'name': 'Probs', 'url': 'probs'},
 	{'name': 'Status', 'url': 'status'},
 	{'name': 'Ranks', 'url': 'ranks'},
 	{'name': 'Contests', 'url': 'contest'},
-	{'name': 'Board', 'url': 'board'}]
+	{'name': 'Board', 'url': 'board'},
+	{'name': 'Stats', 'url': 'stats'}]
 
 #configure DB in dbhandler.py

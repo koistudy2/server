@@ -48,6 +48,8 @@ include('robots.py') #@app.route('/robots.txt')
 
 include('error_handler.py') #@app.errorhandler(404) #@app.errorhandler(500)
 
+include('stats.py') #@app.route('/stats')
+
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)
 	
