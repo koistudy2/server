@@ -1,4 +1,4 @@
-noie8.en=IE <8 not fully supported.
+noie8.en=IE <=8 not fully supported.
 noie8.ko=IE 8 이하는 제대로 지원하지 않습니다.
 signin.en=Sign In
 signin.ko=로그인
@@ -54,6 +54,8 @@ password_new.en=New password
 password_new.ko=새 비밀번호
 password_new_re.en=Retype new password
 password_new_re.ko=새 비밀번호 확인
+changeinfo_submit.en=Save
+changeinfo_submit.ko=저장
 
 title_signup.en=Sign Up
 title_signup.ko=회원가입
