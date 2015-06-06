@@ -1,7 +1,5 @@
 #Logic Related to robots.txt
 
-from functional import newrender
-
 def robots():
 	return 'User-agent: *\r\nAllow: /'
 

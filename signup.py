@@ -2,9 +2,13 @@
 #Logic Related to Signup
 
 from functional import newrender
+from flask import request,session
 import httplib
 import urllib
 import json
+import re
+
+import lang
 
 def signup():
 	return newrender('title_signup', '', 'signup.html')
@@ -16,7 +20,6 @@ def signup_submit():
 	conn.request("POST", "/recaptcha/api/siteverify", params, headers)
 	res = conn.getresponse()
 	result = json.loads(res.read())
-	import re #wth is this? this actually solved the problem but i have no idea
 	if not result['success']:
 		return newrender('title_signup', '', 'signup_err.html', 'signup_err_captcha')
 	else:

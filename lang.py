@@ -10,4 +10,5 @@ for line in lines:
 		if not (each.group(2)) in lang:
 			lang[each.group(2)] = {}
 		lang[each.group(2)][each.group(1)] = each.group(3)
-		
+        
+

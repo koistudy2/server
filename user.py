@@ -2,9 +2,14 @@
 #Logic Related to users page
 
 from functional import newrender
+from flask import session,request
+import dbhandler
+import bcrypt
+import re
+
+import lang
 
 def user():
-	import dbhandler
 	try:
 		user = dbhandler.col_members.find_one({"username": session['username']})
 		data = {}
@@ -16,7 +21,6 @@ def user():
 		return newrender('title_error', 'Error')
 
 def changeuser():
-	import dbhandler
 	try:
 		user = dbhandler.col_members.find_one({"username": session['username']})
 		data = {}
@@ -29,9 +33,7 @@ def changeuser():
 		return newrender('title_error', 'Error')
 
 def changeuser_submit():
-	import dbhandler
-	import bcrypt
-	import re
+	
 	try:
 		user = dbhandler.col_members.find_one({"username": session['username']})
 		data = {}

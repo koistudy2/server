@@ -2,15 +2,20 @@
 #Logic Related to Signup
 
 from functional import newrender
+from flask import session, request
+
+import dbhandler
+import bcrypt
+import datetime
+import md5
+
+import lang
 
 def login():
 	return newrender('title_login', '', 'login.html')
 
 def login_submit():
-	import dbhandler
-	import bcrypt
-	import datetime
-	import md5
+	
 	try:
 		user = dbhandler.col_members.find_one({"username": request.form['username']})
 		if 'migrated' in user: #migrated from koistudy1
