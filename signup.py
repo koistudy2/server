@@ -2,6 +2,9 @@
 #Logic Related to Signup
 
 from functional import newrender
+import httplib
+import urllib
+import json
 
 def signup():
 	return newrender('title_signup', '', 'signup.html')
