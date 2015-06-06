@@ -1,5 +1,6 @@
 #Logic Related to viewprob
 
+from flask import session
 from functional import newrender
 
 def viewprob(probid):
