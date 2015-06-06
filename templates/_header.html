@@ -39,7 +39,7 @@
 				<li><a href="/{{menu.url}}">{{menu.name}}</a></li>
 				{%endfor%}
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right" style="padding-left: 15px">
 				{%if session.username is defined%}
 				<li><a href="/user"><strong>{{session.nickname}}</strong></a></li>
 				<li><a href="/logout">{{lang['logout']}}</a></li>
