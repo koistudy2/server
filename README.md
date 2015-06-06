@@ -8,7 +8,7 @@ Based on: **Python 2.6**, **Flask**, **Jinja2**, **MongoDB**, **py-bcrypt**
 
 
 ###Python modules
-####Installing easy_install (on CentOS)
+####Installing easy_install (on CentOS/RHEL/Fedora)
 <pre>$ sudo yum install python-setuptools </pre>
 ####Installing Flask
 <pre>$ sudo easy_install Flask</pre>
@@ -40,6 +40,11 @@ $ sudo apt-get update
 $ sudo apt-get install -y mongodb-org</pre>
 
 ###[py-bcrypt](http://www.mindrot.org/projects/py-bcrypt/)
+ - Install Python development package.
+####CentOS/RHEL/Fedora
+<pre>$ sudo yum install python-devel</pre>
+####Ubuntu
+<pre>$ sudo apt-get install python-dev</pre>
  - Download the archive at https://code.google.com/p/py-bcrypt/downloads/list
  - Unpack the archive, and run setup.py
 
