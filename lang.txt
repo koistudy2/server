@@ -46,7 +46,7 @@ changeinfo.en=Change user info
 changeinfo.ko=회원정보 수정
 
 title_signup.en=Sign Up
-title_signup.ko=회원가
+title_signup.ko=회원가입
 title_login.en=Sign In
 title_login.ko=로그인
 title_main.en=Main
