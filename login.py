@@ -34,7 +34,7 @@ def login_submit():
 				dbhandler.col_logs.insert_one(log)
 				return redirect('/')
 		else:
-			if bcrypt.hashpw(request.form['password'].encode("UTF-8"), user['password']) == user['password']:
+			if bcrypt.hashpw(request.form['password'].encode("UTF-8"), user['password'].encode('utf-8')) == user['password']:
 				session['username'] = request.form['username']
 				session['nickname'] = user['nickname']
 				log = {"date": datetime.datetime.now(), "type": "login", "result": "succeed", "username": request.form['username'], "ip": request.remote_addr}

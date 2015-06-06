@@ -77,9 +77,10 @@ def confirm(path):
 	try:
 		user = dbhandler.col_members.find_one({"activation_link": path})
 		if user['activated'] == False:
-			user['activated'] = True
-			del user['activation_link']
-			dbhandler.col_members.update({'_id': user['_id']}, {"$set": user}, upsert=False)
+                        newuser = dict(user)
+			newuser['activated'] = True
+			del newuser['activation_link']
+			dbhandler.col_members.update({'_id': user['_id']}, {"$set": newuser}, upsert=False)
 			return newrender('title_signup', lang.lang[session.get('locale', 'ko')]['signup_verification_complete'])
 		else:
 			return newrender('title_signup', '', 'signup_err.html', 'signup_err_link')
