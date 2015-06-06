@@ -28,7 +28,7 @@ def signup_submit():
 								return render('KOISTUDYS2', '', 'signup_err_iddup')
 							except IndexError:
 								import bcrypt
-								human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'].encode('UTF-8'), bcrypt.gensalt()), "name": request.form['name'], "email": request.form['email']}
+								human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'].encode('UTF-8'), bcrypt.gensalt()), "name": request.form['name'], "nickname": request.form['nickname'], "email": request.form['email']}
 								dbhandler.col_members.insert_one(human)
 								return newrender('title_signup', lang.lang[session.get('locale', 'ko')]['signup_complete'])
 						else:
