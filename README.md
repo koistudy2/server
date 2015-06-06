@@ -1,6 +1,6 @@
 #koistudy 2
 
-Based on: **Python 2.6**, **Flask**, **Jinja2**, **MongoDB**, **py-bcrypt**
+Based on: **Python 2.7**, **Flask**, **Jinja2**, **MongoDB**, **bcrypt**
 
 ----------
 ##Installing requirements
@@ -8,8 +8,10 @@ Based on: **Python 2.6**, **Flask**, **Jinja2**, **MongoDB**, **py-bcrypt**
 
 
 ###Python modules
-####Installing easy_install (on CentOS/RHEL/Fedora)
+####Installing pip (on CentOS/RHEL/Fedora)
 <pre>$ sudo yum install python-pip </pre>
+####Installing pip (on Ubuntu)
+<pre>$ sudo apt-get install python-pip </pre>
 ####Installing Flask
 <pre>$ sudo pip install Flask</pre>
 ####Installing PyMongo
