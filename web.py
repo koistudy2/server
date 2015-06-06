@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, session, request, redirect
+from flask import Flask, session, request
 import os.path #file exists
-import httplib, urllib
-import json
+import random
+import string
+
 #custom modules
 import lang
 import configs
 import dbhandler
 
-import random
-import string
-
+#make context
 app = Flask(__name__)
 
-import sys #to supress unicodedecodeerror
+#to supress unicodedecodeerror
+import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -22,9 +22,6 @@ if os.path.exists("/dev/random"):
 	app.secret_key = open("/dev/random","rb").read(32)
 else:
 	app.secret_key = ''.join(random.choice(string.ascii_uppercase) for _ in range(32))
-
-#def newrender(title, content, filename='_basic.html', mode='', data=''):
-#	return render_template(filename, title=configs.t_prefix + ' - ' + lang.lang[session.get('locale', 'ko')][title], content=content, lang=lang.lang[session.get('locale', 'ko')], menus=configs.menus, session=session, mode=mode, data=data)
 
 @app.before_request
 def initApp():
@@ -63,7 +60,7 @@ app.route('/stats')(stats.stats)
 import probs
 app.route('/probs')(probs.probs)
 
-import user #@app.route('/changeuser/submit')
+import user
 app.route('/user')(user.user)
 app.route('/changeuser')(user.changeuser)
 app.route('/changeuser/submit', methods=['POST'])(user.changeuser_submit)
