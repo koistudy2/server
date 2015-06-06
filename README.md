@@ -41,8 +41,10 @@ $ sudo apt-get install -y mongodb-org</pre>
 
 ###[py-bcrypt](http://www.mindrot.org/projects/py-bcrypt/)
  - Install Python development package.
+
 ####CentOS/RHEL/Fedora
 <pre>$ sudo yum install python-devel</pre>
+
 ####Ubuntu
 <pre>$ sudo apt-get install python-dev</pre>
  - Download the archive at https://code.google.com/p/py-bcrypt/downloads/list
