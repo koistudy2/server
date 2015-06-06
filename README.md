@@ -1,6 +1,7 @@
 #koistudy 2
 
-Based on: **Python 2.7**, **Flask**, **Jinja2**, **MongoDB**, **bcrypt**
+ - Based on: **Python 2.7**, **Flask**, **Jinja2**, **MongoDB**, **bcrypt**
+ - Demo: https://koistudy2.0101010101.com (Auto-deployed by git pull)
 
 ----------
 ##Installing requirements
