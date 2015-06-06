@@ -16,6 +16,7 @@ def login_submit():
 		if 'migrated' in user: #migrated from koistudy1
 			if md5.new(request.form['password']).digest() == user['password']:
 				session['username'] = request.form['username']
+				session['nickname'] = user['nickname']
 				log = {"date": datetime.datetime.now(), "type": "login_migrated", "result": "succeed", "username": request.form['username'], "ip": request.remote_addr}
 				user['password'] = bcrypt.hashpw(request.form['password'].encode("UTF-8"), bcrypt.gensalt())
 				del user['migrated']
@@ -25,6 +26,7 @@ def login_submit():
 		else:
 			if bcrypt.hashpw(request.form['password'].encode("UTF-8"), user['password']) == user['password']:
 				session['username'] = request.form['username']
+				session['nickname'] = user['nickname']
 				log = {"date": datetime.datetime.now(), "type": "login", "result": "succeed", "username": request.form['username'], "ip": request.remote_addr}
 				dbhandler.col_logs.insert_one(log)
 				return redirect('/')

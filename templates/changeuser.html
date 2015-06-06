@@ -1,0 +1,39 @@
+{%include '_header.html'%}
+<div class="row">
+	<form action="/changeuser/submit" method="POST" class="col-md-offset-3 col-md-6">
+		<div class="row">
+			<div class="col-md-4"><label>{{lang['password_now']}}</label></div>
+			<div class="col-md-8"><input type="password" class="form-control" name="password" placeholder="{{lang['type_pw_now']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-4"><label>{{lang['password_new']}}</label></div>
+			<div class="col-md-8"><input type="password" class="form-control" name="password" placeholder="{{lang['left_blank']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-4"><label>{{lang['password_new_re']}}</label></div>
+			<div class="col-md-8"><input type="password" class="form-control" name="password_re" placeholder="{{lang['left_blank']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-4"><label>{{lang['name']}}</label></div>
+			<div class="col-md-8"><input type="text" class="form-control" name="name" placeholder="{{lang['name']}}" value="{{data['name']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-4"><label>{{lang['nickname']}}</label></div>
+			<div class="col-md-8"><input type="text" class="form-control" name="nickname" placeholder="{{lang['nickname']}}" value="{{data['nickname']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-4"><label>{{lang['email']}}</label></div>
+			<div class="col-md-8"><input type="email" class="form-control" name="email" placeholder="{{lang['email']}}" value="{{data['email']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-6 col-md-offset-6"><input type="submit" class="btn btn-primary btn-block" value="{{lang['signup_submit']}}"></div>
+		</div>
+	</form>
+</div>
+{%include '_footer.html'%}

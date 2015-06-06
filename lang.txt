@@ -44,6 +44,16 @@ logout.en=Sign out
 logout.ko=로그아웃
 changeinfo.en=Change user info
 changeinfo.ko=회원정보 수정
+type_pw_now.en=Type the password now you're using
+type_pw_now.ko=현재 사용중인 비밀번호를 입력하세요.
+left_blank.en=Left blank if you don't want to change
+left_blank.ko=바꾸지 않으려면 빈칸으로 두세요.
+password_now.en=Password now
+password_now.ko=현재 비밀번호
+password_new.en=New password
+password_new.ko=새 비밀번호
+password_new_re.en=Retype new password
+password_new_re.ko=새 비밀번호 확인
 
 title_signup.en=Sign Up
 title_signup.ko=회원가입
