@@ -19,4 +19,4 @@ def viewprob(probid):
 			'exout'			: 'Sample output example' }
 	#desc = dbhandler.col_descs.find_one({"unique_id": probid})
 	#prob = dbhandler.col_probs.find_one({"unique_id": probid})
-	return newrender('title_viewprob','','viewprob.html','',{'prob':prob, 'desc':desc})
+	return newrender('title_viewprob','','viewprob.html','',{'prob':prob, 'desc':desc, 'session': session})

@@ -1,40 +1,93 @@
 {%include '_header.html'%}
-<div class="center">
-	<div class="row">
-		<div class="col-md-12 h1"><strong>{{data.prob.display_name}}</strong></div>
+<ul class="nav nav-tabs" role="tablist">
+	<li role="presentation" class="active"><a href="#viewprob" aria-controls="viewprob" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> {{lang['viewprob_viewprob']}}</a></li>
+	<li role="presentation"><a href="#submit" aria-controls="submit" data-toggle="tab"><span class="glyphicon glyphicon-pencil"></span> {{lang['viewprob_submit']}}</a></li>
+</ul>
+<div class="tab-content">
+	<div class="tab-pane active" id="viewprob">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						<div class="row">
+							<div class="col-md-12 h1"><strong>{{data.prob.display_name}}</strong></div>
+						</div>
+					</th>
+				</th>
+			</thead>
+			<tbody>
+				<tr class="active">
+					<td>
+						<div class="row">
+							<div class="col-md-2 h4"><strong> {{lang['viewprob_unique']}} </strong></div>
+							<div class="col-md-2 h4"> {{data.prob.unique_id}} </div>
+						</div>
+						<div class="row">
+							<div class="col-md-2 h4"><strong> {{lang['viewprob_limit_time']}} </strong></div>
+							<div class="col-md-2 h4"> {{data.prob.limit_time}} </div>
+						</div>
+						<div class="row">
+							<div class="col-md-2 h4"><strong> {{lang['viewprob_solved']}} </strong></div>
+							<div class="col-md-2 h4"> {{data.prob.solved}} </div>
+							<div class="col-md-2 h4"><strong> {{lang['viewprob_submits']}} </strong></div>
+							<div class="col-md-2 h4"> {{data.prob.submits}} </div>
+						</div>
+						<div class="row">
+							<div class="col-md-2 h4"><strong> {{lang['viewprob_champion']}} </strong></div>
+							<div class="col-md-2 h4"> {{data.prob.champion}} </div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="col-md-12 row h2"> {{lang['viewprob_description']}} </div>
+						<div class="col-md-12 row"> {{data.desc.description}} </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="col-md-12 row h2"> {{lang['viewprob_input']}} </div>
+						<div class="col-md-12 row"> {{data.desc.input}} </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="col-md-12 row h2"> {{lang['viewprob_output']}} </div>
+						<div class="col-md-12 row"> {{data.desc.output}} </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="col-md-6 row h2"> {{lang['viewprob_exin']}} </div>
+						<div class="col-md-6 row h2"> {{lang['viewprob_exout']}} </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="col-md-6 row"> {{data.desc.exin}} </div>
+						<div class="col-md-6 row"> {{data.desc.exout}} </div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-	<div class="row">
-		<div class="col-md-2 h4"> {{lang['viewprob_unique']}} </div>
-		<div class="col-md-2 h4"> {{data.prob.unique_id}} </div>
+	<div class="tab-pane active" id="submit">
+		{%if session['username']%}
+		<div id="editor" style="width: 100%; height: 500px;">
+		function foo(items) {
+    var x = "All this is syntax highlighted";
+    return x;
+}
+		</div>
+		<script src="/static/ace/ace.js"></script>
+		<script>
+			var editor = ace.edit("editor");
+			editor.setTheme("ace/theme/chrome");
+			editor.getSession().setMode("ace/mode/c_cpp");
+		</script>
+		{%else%}
+		<h2>{{lang['viewprob_pleaselogin']}}</h2>
+		{%endif%}
 	</div>
-	<div class="row">
-		<div class="col-md-2 h4"> {{lang['viewprob_limit_time']}} </div>
-		<div class="col-md-2 h4"> {{data.prob.limit_time}} </div>
-	</div>
-	<div class="row">
-		<div class="col-md-2 h4"> {{lang['viewprob_solved']}} </div>
-		<div class="col-md-2 h4"> {{data.prob.solved}} </div>
-		<div class="col-md-2 h4"> {{lang['viewprob_submits']}} </div>
-		<div class="col-md-2 h4"> {{data.prob.submits}} </div>
-	</div>
-	<div class="row">
-		<div class="col-md-2 h4"> {{lang['viewprob_champion']}} </div>
-		<div class="col-md-2 h4"> {{data.prob.champion}} </div>
-	</div>
-	<div class="row h2"> {{lang['viewprob_description']}} </div>
-	<div class="row h4"> {{data.desc.description}} </div>
-
-	<div class="row h2"> {{lang['viewprob_input']}} </div>
-	<div class="row h4"> {{data.desc.input}} </div>
-
-	<div class="row h2"> {{lang['viewprob_output']}} </div>
-	<div class="row h4"> {{data.desc.output}} </div>
-
-	<div class="row h2"> {{lang['viewprob_exin']}} </div>
-	<div class="row h4"> {{data.desc.exin}} </div>
-
-	<div class="row h2"> {{lang['viewprob_exout']}} </div>
-	<div class="row h4"> {{data.desc.exout}} </div>
-	
 </div>
 {%include '_footer.html'%}

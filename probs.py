@@ -16,7 +16,6 @@ def probs():
 					'solved'		: '4',
 					'submits'		: '4444',
 					'diff'			: '9'} ];
-	key_list = [('num','Number'), ('verdict','Verdict'), ('display_name','Name'),
-		('solved','Solved'), ('tried','Tried'), ('diff','Diff')]
+	key_list = [('num','Number'), ('verdict','Verdict'), ('display_name','Name'), ('solved','Solved'), ('tried','Tried'), ('diff','Diff')]
 
 	return newrender('title_probs', '', 'probs.html', 'probs', {'submit_list':submit_list, 'key_list':key_list})

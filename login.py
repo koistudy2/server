@@ -34,7 +34,7 @@ def login_submit():
 				log = {"date": datetime.datetime.now(), "type": "login", "result": "wrongpw", "username": request.form['username'], "ip": request.remote_addr}
 				dbhandler.col_logs.insert_one(log)
 				return newrender('title_login', '', 'login_err.html', 'login_err_pw')
-	except IndexError:
+	except (IndexError, TypeError):
 		log = {"date": datetime.datetime.now(), "type": "login", "result": "wrongusername", "username": request.form['username'], "ip": request.remote_addr}
 		dbhandler.col_logs.insert_one(log)
 		return newrender('title_login', '', 'login_err.html', 'login_err_username')
