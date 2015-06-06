@@ -5,8 +5,14 @@ Based on: **Python 2.6**, **Flask**, **Jinja2**, **MongoDB**, **py-bcrypt**
 ----------
 ##Installing requirements
 
+
+
 ###Python modules
+####Installing easy_install (on CentOS)
+<pre>$ sudo yum install python-setuptools </pre>
+####Installing Flask
 <pre>$ sudo easy_install Flask</pre>
+####Installing PyMongo
 <pre>$ sudo easy_install pymongo</pre>
 
 ###MongoDB
