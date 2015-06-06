@@ -52,10 +52,10 @@ def changeuser_submit():
 				user['name'] = request.form['name']
 			else:
 				return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_name')
-			if re.match('^[a-zA-Z._+\\-0-9]+@[a-z0-9.\\-]+\\.[a-z]{2,5}$', request.form['email']):
-				user['email'] = request.form['email']
-			else:
-				return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_email')
+			#if re.match('^[a-zA-Z._+\\-0-9]+@[a-z0-9.\\-]+\\.[a-z]{2,5}$', request.form['email']):
+				#user['email'] = request.form['email']
+			#else:
+			#	return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_email')
 			dbhandler.col_members.update({'_id': user['_id']}, {"$set": user}, upsert=False)
 			return newrender('title_user', lang.lang[session.get('locale', 'ko')]['changeuser_complete'])
 		else:
