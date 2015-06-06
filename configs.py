@@ -10,5 +10,9 @@ menus = [{'name': 'Probs', 'url': 'probs'},
 	{'name': 'Board', 'url': 'board'},
 	{'name': 'Stats', 'url': 'stats'}]
 t_prefix = 'KOISTUDYS2' #title prefix
+default_url = 'https://koistudy2.0101010101.com' #no slash, please
+
+execfile('secretconfig.py')
+#recaptcha_secret, gmail_id, gmail_pw have to be defined
 
 #configure DB in dbhandler.py

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 #Logic Related to users page
 
+from flask import session, request
+import lang
 from functional import newrender
 
 def user():

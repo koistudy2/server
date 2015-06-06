@@ -38,6 +38,8 @@ app.route('/')(index.index)
 import signup
 app.route('/signup')(signup.signup)
 app.route('/signup/submit', methods=['POST'])(signup.signup_submit)
+app.route('/confirm/resend')(signup.resend)
+app.route('/confirm/<path:path>')(signup.confirm)
 
 import login
 app.route('/login')(login.login)

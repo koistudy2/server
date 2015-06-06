@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #Logic Related to Signup
 
+from flask import session, request, redirect
 from functional import newrender
 
 def login():
@@ -13,6 +14,10 @@ def login_submit():
 	import md5
 	try:
 		user = dbhandler.col_members.find_one({"username": request.form['username']})
+		if user['activated'] == False:
+			session['activation_link'] = user['activation_link']
+			session['activation_email'] = user['email']
+			return newrender('title_login', '', 'login_err.html', 'login_err_email')
 		if 'migrated' in user: #migrated from koistudy1
 			if md5.new(request.form['password']).digest() == user['password']:
 				session['username'] = request.form['username']
