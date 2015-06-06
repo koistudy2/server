@@ -32,12 +32,10 @@ gpgcheck=0
 enabled=1</pre>
 - run following
 <pre>$ sudo yum install -y mongodb-org</pre>
+ - You may install mongodb 2.4 by yum install -y mongodb, but it may conflict with other packages.
 
 #### Ubuntu
-<pre>$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-$ echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-$ sudo apt-get update
-$ sudo apt-get install -y mongodb-org</pre>
+<pre>$ sudo apt-get install -y mongodb</pre>
 
 ###[bcrypt](https://github.com/dstufft/bcrypt/)
 ####CentOS/RHEL/Fedora/Ubuntu
@@ -46,7 +44,11 @@ $ sudo apt-get install -y mongodb-org</pre>
 ----------
 ##Let's run!
  - You have to start mongod first
-<pre>$ sudo service mongod start</pre>
+  - On Linux, type following
+<pre>$ sudo chkconfig mongod on
+$ sudo service mongod start</pre>
+  - On OS X, type following
+<pre>$ mongod</pre>
  - Now, type following in your working directory on another terminal
 <pre>$ python web.py</pre>
  - Type http://localhost:5000 in your browser and watch what happens
