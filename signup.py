@@ -7,7 +7,6 @@ from flask import request,session
 import httplib
 import urllib
 import json
-<<<<<<< HEAD
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
@@ -15,10 +14,7 @@ from smtplib import SMTP_SSL
 import configs
 import random
 import string
-=======
 import re
-
->>>>>>> origin/master
 import lang
 
 def signup():
