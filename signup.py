@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 #Logic Related to Signup
 
-@app.route('/signup')
+from functional import newrender
+
 def signup():
 	return newrender('title_signup', '', 'signup.html')
 
-@app.route('/signup/submit', methods=['POST'])
 def signup_submit():
 	params = urllib.urlencode({'secret': '6LfC4AcTAAAAAFtmCCOlsAE4kLXSJuNPQu49uiCp', 'response': request.form['g-recaptcha-response']})
 	headers = {"Content-type": "application/x-www-form-urlencoded"}

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 #Logic Related to Signup
 
-@app.route('/login')
+from functional import newrender
+
 def login():
 	return newrender('title_login', '', 'login.html')
 
-@app.route('/login/submit', methods=['POST'])
 def login_submit():
 	import dbhandler
 	import bcrypt
@@ -39,7 +39,6 @@ def login_submit():
 		dbhandler.col_logs.insert_one(log)
 		return newrender('title_login', '', 'login_err.html', 'login_err_username')
 
-@app.route('/logout')
 def logout():
 	del session['username']
 	return redirect('/')

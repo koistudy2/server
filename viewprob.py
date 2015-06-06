@@ -1,6 +1,7 @@
 #Logic Related to viewprob
 
-@app.route('/viewprob/<probid>')
+from functional import newrender
+
 def viewprob(probid):
 	prob = 			{'num'			: '1',
 					'verdict'		: 'AC',

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 #Logic Related to users page
 
-@app.route('/user')
+from functional import newrender
+
 def user():
 	import dbhandler
 	try:
@@ -14,7 +15,6 @@ def user():
 	except KeyError:
 		return newrender('title_error', 'Error')
 
-@app.route('/changeuser')
 def changeuser():
 	import dbhandler
 	try:
@@ -28,7 +28,6 @@ def changeuser():
 	except KeyError:
 		return newrender('title_error', 'Error')
 
-@app.route('/changeuser/submit', methods=['POST'])
 def changeuser_submit():
 	import dbhandler
 	import bcrypt

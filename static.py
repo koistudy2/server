@@ -1,6 +1,7 @@
 #Logic Related to static files
 
-@app.route('/static/<path:path>')
+from error_handler import error_404
+
 def static_files(path):
 	if '.' in path:
 		return error_404(0)

@@ -13,10 +13,6 @@ import string
 
 app = Flask(__name__)
 
-def include(filename):
-	if os.path.exists(filename): 
-                execfile(filename)
-
 import sys #to supress unicodedecodeerror
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -27,8 +23,8 @@ if os.path.exists("/dev/random"):
 else:
 	app.secret_key = ''.join(random.choice(string.ascii_uppercase) for _ in range(32))
 
-def newrender(title, content, filename='_basic.html', mode='', data=''):
-	return render_template(filename, title=configs.t_prefix + ' - ' + lang.lang[session.get('locale', 'ko')][title], content=content, lang=lang.lang[session.get('locale', 'ko')], menus=configs.menus, session=session, mode=mode, data=data)
+#def newrender(title, content, filename='_basic.html', mode='', data=''):
+#	return render_template(filename, title=configs.t_prefix + ' - ' + lang.lang[session.get('locale', 'ko')][title], content=content, lang=lang.lang[session.get('locale', 'ko')], menus=configs.menus, session=session, mode=mode, data=data)
 
 @app.before_request
 def initApp():
@@ -36,26 +32,43 @@ def initApp():
 	if not 'locale' in session:
 		session['locale'] = request.accept_languages.best_match(['ko', 'en'])
 
-include('index.py') #@app.route('/')
+import index
+app.route('/')(index.index)
 
-include('signup.py') #@app.route('/signup') @app.route('/signup/submit', methods=['POST'])
+import signup
+app.route('/signup')(signup.signup)
+app.route('/signup/submit', methods=['POST'])(signup.signup_submit)
 
-include('login.py') #@app.route('/login') @app.route('/login/submit', methods=['POST']) @app.route('/logout')
+import login
+app.route('/login')(login.login)
+app.route('/login/submit', methods=['POST'])(login.login_submit)
+app.route('/logout')(login.logout)
 
-include('static.py') #@app.route('/static/<path:path>')
+import static
+app.route('/static/<path:path>')(static.static_files)
 
-include('robots.py') #@app.route('/robots.txt')
+import robots
+app.route('/robots.txt')(robots.robots)
+app.route('/humans.txt')(robots.humans)
 
-include('error_handler.py') #@app.errorhandler(404) #@app.errorhandler(500)
+import error_handler
+app.errorhandler(404)(error_handler.error_404)
+app.errorhandler(500)(error_handler.error_500)
 
-include('stats.py') #@app.route('/stats')
+import stats
+app.route('/stats')(stats.stats)
 
-include('probs.py') #@app.route('/probs')
+import probs
+app.route('/probs')(probs.probs)
 
-include('user.py') #@app.route('/user') @app.route('/changeuser') @app.route('/changeuser/submit')
+import user #@app.route('/changeuser/submit')
+app.route('/user')(user.user)
+app.route('/changeuser')(user.changeuser)
+app.route('/changeuser/submit', methods=['POST'])(user.changeuser_submit)
 
-include('viewprob.py') #@app.route('/viewprob?id=<probid>')
+import viewprob
+app.route('/viewprob/<probid>')(viewprob.viewprob)
 
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)
-	
+

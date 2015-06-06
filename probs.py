@@ -1,6 +1,7 @@
 #Logic Related to probs.html
 
-@app.route('/probs')
+from functional import newrender
+
 def probs():
 	submit_list = [{'num'			: '1',
 					'verdict'		: 'AC',

@@ -1,10 +1,10 @@
 #Logic Related to robots.txt
 
-@app.route('/robots.txt')
+from functional import newrender
+
 def robots():
 	return 'User-agent: *\r\nAllow: /'
 
-@app.route('/humans.txt')
 def humans():
 	return """User-agent: *
 Allow: /
