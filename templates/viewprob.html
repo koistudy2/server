@@ -1,0 +1,40 @@
+{%include '_header.html'%}
+<div class="center">
+	<div class="row">
+		<div class="col-md-12 h1"><strong>{{data.prob.display_name}}</strong></div>
+	</div>
+	<div class="row">
+		<div class="col-md-2 h4"> {{lang['viewprob_unique']}} </div>
+		<div class="col-md-2 h4"> {{data.prob.unique_id}} </div>
+	</div>
+	<div class="row">
+		<div class="col-md-2 h4"> {{lang['viewprob_limit_time']}} </div>
+		<div class="col-md-2 h4"> {{data.prob.limit_time}} </div>
+	</div>
+	<div class="row">
+		<div class="col-md-2 h4"> {{lang['viewprob_solved']}} </div>
+		<div class="col-md-2 h4"> {{data.prob.solved}} </div>
+		<div class="col-md-2 h4"> {{lang['viewprob_submits']}} </div>
+		<div class="col-md-2 h4"> {{data.prob.submits}} </div>
+	</div>
+	<div class="row">
+		<div class="col-md-2 h4"> {{lang['viewprob_champion']}} </div>
+		<div class="col-md-2 h4"> {{data.prob.champion}} </div>
+	</div>
+	<div class="row h2"> {{lang['viewprob_description']}} </div>
+	<div class="row h4"> {{data.desc.description}} </div>
+
+	<div class="row h2"> {{lang['viewprob_input']}} </div>
+	<div class="row h4"> {{data.desc.input}} </div>
+
+	<div class="row h2"> {{lang['viewprob_output']}} </div>
+	<div class="row h4"> {{data.desc.output}} </div>
+
+	<div class="row h2"> {{lang['viewprob_exin']}} </div>
+	<div class="row h4"> {{data.desc.exin}} </div>
+
+	<div class="row h2"> {{lang['viewprob_exout']}} </div>
+	<div class="row h4"> {{data.desc.exout}} </div>
+	
+</div>
+{%include '_footer.html'%}

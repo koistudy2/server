@@ -14,8 +14,8 @@ import string
 app = Flask(__name__)
 
 def include(filename):
-    if os.path.exists(filename): 
-        execfile(filename)
+	if os.path.exists(filename): 
+                execfile(filename)
 
 import sys #to supress unicodedecodeerror
 reload(sys)
@@ -53,6 +53,8 @@ include('stats.py') #@app.route('/stats')
 include('probs.py') #@app.route('/probs')
 
 include('user.py') #@app.route('/user') @app.route('/changeuser') @app.route('/changeuser/submit')
+
+include('viewprob.py') #@app.route('/viewprob?id=<probid>')
 
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)

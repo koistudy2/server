@@ -13,7 +13,15 @@
 			{%for eachprob in data.submit_list%}
 			<tr>
 				{%for key,name in data.key_list%}
-				<td>{{eachprob[key]}}</td>
+				<td>
+					{%if key == 'display_name'%}
+						<a href="/viewprob/{{eachprob['unique_id']}}">
+					{%endif%}
+					{{eachprob[key]}}
+					{%if key == 'name'%}
+						</a>
+					{%endif%}
+				</td>
 				{%endfor%}
 			</tr>
 			{%endfor%}
