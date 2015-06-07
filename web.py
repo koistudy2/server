@@ -59,6 +59,7 @@ app.route('/stats')(stats.stats)
 
 import probs
 app.route('/probs')(probs.probs)
+app.route('/probs/<int:page>')(probs.probs)
 
 import user
 app.route('/user')(user.user)
@@ -67,6 +68,10 @@ app.route('/changeuser/submit', methods=['POST'])(user.changeuser_submit)
 
 import viewprob
 app.route('/viewprob/<probid>')(viewprob.viewprob)
+
+import addprob
+app.route('/addprob')(addprob.addprob)
+app.route('/addprob/submit', methods=['POST'])(addprob.addprob_submit)
 
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)

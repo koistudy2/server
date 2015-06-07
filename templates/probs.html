@@ -1,32 +1,69 @@
 {%include '_header.html'%}
 <div class="row">
 	<div class="container">
+		{%if data.is_admin == True%}
+		<a href="/addprob" class="btn btn-primary">{{lang['addprob']}}</a>
+		<br /><br />
+		{%endif%}
 		<table class="table table-bordered">
-		<thead>
-			<tr>
-				{%for key,name in data.key_list%}
-				<th>{{name}}</th>
+			<thead>
+				<tr>
+					{%for key,name in data.key_list%}
+					<th>{{name}}</th>
+					{%endfor%}
+				</tr>
+			</thead>
+			<tbody>
+				{%for eachprob in data.submit_list%}
+				<tr>
+					{%for key,name in data.key_list%}
+					<td>
+						{%if key == 'display_name'%}
+							<a href="/viewprob/{{eachprob['unique_id']}}">
+						{%endif%}
+						{{eachprob[key]}}
+						{%if key == 'name'%}
+							</a>
+						{%endif%}
+					</td>
+					{%endfor%}
+				</tr>
 				{%endfor%}
-			</tr>
-		</thead>
-		<tbody>
-			{%for eachprob in data.submit_list%}
-			<tr>
-				{%for key,name in data.key_list%}
-				<td>
-					{%if key == 'display_name'%}
-						<a href="/viewprob/{{eachprob['unique_id']}}">
-					{%endif%}
-					{{eachprob[key]}}
-					{%if key == 'name'%}
-						</a>
-					{%endif%}
-				</td>
-				{%endfor%}
-			</tr>
-			{%endfor%}
-		</tbody>
-	</table>
+			</tbody>
+		</table>
+		<div class="text-center">
+			<nav>
+				<ul class="pagination">
+				{%if data.pagenow > 3%}
+				<li>
+					<a href="#">
+					<span>&laquo;</span>
+					</a>
+				</li>
+				{%endif%}
+				{%if data.pagenow > 2%}
+				<li><a href="#">{{data.pagel1}}</a></li>
+				{%endif%}
+				{%if data.pagenow > 1%}
+				<li><a href="#">{{data.pagel2}}</a></li>
+				{%endif%}
+				<li><a href="#">{{data.pagenow}}</a></li>
+				{%if data.pager1 != 0%}
+				<li><a href="#">{{data.pager1}}</a></li>
+				{%endif%}
+				{%if data.pager2 != 0%}
+				<li><a href="#">{{data.pager2}}</a></li>
+				{%endif%}
+				{%if data.pager3 != 0%}
+				<li>
+					<a href="#">
+					<span>&raquo;</span>
+					</a>
+				</li>
+				{%endif%}
+				</ul>
+			</nav>
+		</div>
 	</div>
 </div>
 {%include '_footer.html'%}

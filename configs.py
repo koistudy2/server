@@ -12,6 +12,9 @@ menus = [{'name': 'Probs', 'url': 'probs'},
 t_prefix = 'KOISTUDYS2' #title prefix
 default_url = 'https://koistudy2.0101010101.com' #no slash, please
 
+probs_per_page = 20
+admin = ['hletrd', 'hletrd002']
+
 execfile('secretconfig.py')
 #recaptcha_secret, gmail_id, gmail_pw have to be defined
 
