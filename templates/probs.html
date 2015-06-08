@@ -5,12 +5,17 @@
 		<a href="/addprob" class="btn btn-primary">{{lang['addprob']}}</a>
 		<br /><br />
 		{%endif%}
-		<table class="table table-bordered">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					{%for key,name in data.key_list%}
 					<th>{{name}}</th>
 					{%endfor%}
+					{%if data['is_admin']%}
+					<th>
+						{{lang['probs_modify']}}
+					</th>
+					{%endif%}
 				</tr>
 			</thead>
 			<tbody>
@@ -27,6 +32,11 @@
 						{%endif%}
 					</td>
 					{%endfor%}
+					{%if data['is_admin']%}
+					<td>
+						<a href="/modifyprob/{{eachprob['unique_id']}}" class="btn btn-primary">{{lang['probs_modify']}}</a>
+					</td>
+					{%endif%}
 				</tr>
 				{%endfor%}
 			</tbody>
