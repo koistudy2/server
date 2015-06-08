@@ -6,23 +6,9 @@ import configs
 import dbhandler
 
 def probs(page=1):
-	"""submit_list = [{'num'			: '1',
-					'verdict'		: 'AC',
-					'unique_id'		: 'TEST_1',
-					'display_name'	: 'Hello World',
-					'solved' 		: '1',
-					'submits'		: '1',
-					'diff'			: '1'},
-				   {'num'			: '2',
-					'verdict'		: 'WA',
-					'unique_id'		: 'TEST_2',
-					'display_name'	: 'Goodbye Cruel World',
-					'solved'		: '4',
-					'submits'		: '4444',
-					'diff'			: '9'} ];"""
 	page -= 1
 	submit_list = dbhandler.col_probs.find().skip(page * configs.probs_per_page).limit(configs.probs_per_page)
-	key_list = [('num','Number'), ('verdict','Verdict'), ('display_name','Name'), ('solved','Solved'), ('tried','Tried'), ('diff','Diff')]
+	key_list = [('verdict','Verdict'), ('display_name','Name'), ('solved','Solved'), ('submits','Submits'), ('diff','Diff')]
 	user = dbhandler.col_members.find({"username": session.get('username')})
 	if session.get('username') in configs.admin:
 		is_admin = True

@@ -138,6 +138,10 @@ viewprob_viewprob.en=View problem
 viewprob_viewprob.ko=문제 보기
 viewprob_pleaselogin.en=Please sign in.
 viewprob_pleaselogin.ko=로그인을 해 주세요.
+viewprob_by.en=Source/By
+viewprob_by.ko=출처/출제자
+viewprob_diff.en=Difficulty
+viewprob_diff.ko=난이도
 
 addprob.en=Add problem
 addprob.ko=문제 추가
