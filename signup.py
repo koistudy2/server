@@ -30,10 +30,10 @@ def signup_submit():
 	if not result['success']:
 		return newrender('title_signup', '', 'signup_err.html', 'signup_err_captcha')
 	else:
-		if re.match(u'^[a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣ0-9_\\-.]{4,20}$', request.form['username']):
+		if re.match(u'^[a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣぁ-ゔァ-ヴー々〆〤0-9_\\-.]{4,20}$', request.form['username']):
 			if re.match('^.{6,200}$', request.form['password']):
 				if request.form['password'] == request.form['password_re']:
-					if re.match(u'^[가-힣A-Za-z ]{2,30}$', request.form['name']):
+					if re.match(u'^[가-힣A-Za-zぁ-ゔァ-ヴー々〆〤 ]{2,30}$', request.form['name']):
 						if re.match('^[a-zA-Z._+\\-0-9]+@[a-z0-9.\\-]+\\.[a-z]{2,5}$', request.form['email']):
 							import dbhandler
 							try:

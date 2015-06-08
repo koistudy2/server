@@ -48,7 +48,7 @@ def changeuser_submit():
 						return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_pw_match')
 				else:
 					return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_pw_format')
-			if re.match(u'^[가-힣A-Za-z ]{2,30}$', request.form['name']):
+			if re.match(u'^[가-힣A-Za-zぁ-ゔァ-ヴー々〆〤 ]{2,30}$', request.form['name']):
 				user['name'] = request.form['name']
 			else:
 				return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_name')
