@@ -25,8 +25,8 @@ else:
 
 @app.before_request
 def initApp():
-	if not 'locale' in session:
-		session['locale'] = request.accept_languages.best_match(['ko', 'en'])
+	if not 'locale' in session or not session['locale']:
+		session['locale'] = request.accept_languages.best_match(['ko', 'en']) or 'ko'
 
 import index
 app.route('/')(index.index)
@@ -68,6 +68,9 @@ app.route('/changeuser/submit', methods=['POST'])(user.changeuser_submit)
 import viewprob
 app.route('/viewprob/<probid>')(viewprob.viewprob)
 app.route('/settheme/<theme>')(viewprob.settheme)
+
+import submit
+app.route('/submit/<probid>')(viewprob.viewprob)
 
 import addprob
 app.route('/addprob')(addprob.addprob)
