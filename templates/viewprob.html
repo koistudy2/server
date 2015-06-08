@@ -24,7 +24,11 @@
 						</div>
 						<div class="row">
 							<div class="col-md-2 h4"><strong> {{lang['viewprob_limit_time']}} </strong></div>
-							<div class="col-md-2 h4"> {{data.prob.limit_time}} </div>
+							<div class="col-md-2 h4"> {{data.prob.limit_time}}ms </div>
+						</div>
+						<div class="row">
+							<div class="col-md-2 h4"><strong> {{lang['viewprob_limit_memory']}} </strong></div>
+							<div class="col-md-2 h4"> {{data.prob.limit_memory}} MB </div>
 						</div>
 						<div class="row">
 							<div class="col-md-2 h4"><strong> {{lang['viewprob_solved']}} </strong></div>
@@ -40,20 +44,20 @@
 				</tr>
 				<tr>
 					<td>
-						<div class="col-md-12 row h2"> {{lang['viewprob_description']}} </div>
-						<div class="col-md-12 row"> {{data.desc.description}} </div>
+						<div class="col-md-12 row h2"> {{lang['viewprob_desc']}} </div>
+						<div class="col-md-12 row"> {{data.prob.desc}} </div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="col-md-12 row h2"> {{lang['viewprob_input']}} </div>
-						<div class="col-md-12 row"> {{data.desc.input}} </div>
+						<div class="col-md-12 row"> {{data.prob.input}} </div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="col-md-12 row h2"> {{lang['viewprob_output']}} </div>
-						<div class="col-md-12 row"> {{data.desc.output}} </div>
+						<div class="col-md-12 row"> {{data.prob.output}} </div>
 					</td>
 				</tr>
 				<tr>
@@ -61,24 +65,24 @@
 						<table class="col-md-6">
 							<tr>
 								<td>
-									<div class="col-md-6 row h2"> {{lang['viewprob_exin']}} </div>
+									<div class="col-md-6 row h2"> {{lang['viewprob_input_ex']}} </div>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<div class="col-md-6 row"> {{data.desc.exin}} </div>
+									<div class="col-md-6 row"> {{data.prob.input_ex}} </div>
 								</td>
 							</tr>
 						</table>
 						<table class="col-md-6">
 							<tr>
 								<td>
-									<div class="col-md-6 row h2"> {{lang['viewprob_exout']}} </div>
+									<div class="col-md-6 row h2"> {{lang['viewprob_output_ex']}} </div>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<div class="col-md-6 row"> {{data.desc.exout}} </div>
+									<div class="col-md-6 row"> {{data.prob.output_ex}} </div>
 								</td>
 							</tr>
 						</table>

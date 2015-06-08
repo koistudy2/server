@@ -13,7 +13,7 @@ t_prefix = 'KOISTUDYS2' #title prefix
 default_url = 'https://koistudy2.0101010101.com' #no slash, please
 
 probs_per_page = 20
-admin = ['hletrd', 'hletrd002']
+admin = {'hletrd', 'hletrd002', 'Namnamseo', 'koosaga'}
 
 execfile('secretconfig.py')
 #recaptcha_secret, gmail_id, gmail_pw have to be defined

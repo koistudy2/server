@@ -12,7 +12,7 @@ def addprob():
 
 def addprob_submit():
 	if (session.get('username') in configs.admin):
-		prob = {"num": request.form['num'], "unique_id": request.form['uniqid'], "display_name": request.form['title'], "by": request.form['by'], "tlimit": request.form['tlimit'], "mlimit": request.form['mlimit'], "desc": request.form['desc'], "input": request.form['input'], "output": request.form['output'], "input_ex": request.form['input_ex'], "output_ex": request.form['output_ex'], 'solved': 0, 'submits': 0, 'diff': 0}
+		prob = {"num": request.form['num'], "unique_id": request.form['uniqid'], "display_name": request.form['title'], "by": request.form['by'], "limit_time": request.form['tlimit'], "limit_memory": request.form['mlimit'], "desc": request.form['desc'], "input": request.form['input'], "output": request.form['output'], "exin": request.form['input_ex'], "exout": request.form['output_ex'], 'solved': 0, 'submits': 0, 'diff': 0}
 		dbhandler.col_probs.insert_one(prob)
 		return newrender("title_addprob", lang.lang[session.get('locale', 'ko')]['addprob_added'])
 	else:
