@@ -1,5 +1,6 @@
 from flask import session, redirect
 import configs
+import dbhandler
 
 def changelang(lang):
 	if lang in configs.langs:
