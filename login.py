@@ -16,7 +16,6 @@ def login():
 	return newrender('title_login', '', 'login.html')
 
 def login_submit():
-	
 	try:
 		user = dbhandler.col_members.find_one({"username": request.form['username']})
 		if user['activated'] == False:
