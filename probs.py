@@ -8,7 +8,7 @@ import dbhandler
 def probs(page=1):
 	page -= 1
 	submit_list = dbhandler.col_probs.find().skip(page * configs.probs_per_page).limit(configs.probs_per_page)
-	key_list = [('verdict','Verdict'), ('display_name','Name'), ('solved','Solved'), ('submits','Submits'), ('diff','Diff')]
+	key_list = [('unique_id','Code'), ('verdict','Verdict'), ('display_name','Name'), ('solved','Solved'), ('submits','Submits'), ('diff','Diff')]
 	user = dbhandler.col_members.find({"username": session.get('username')})
 	if session.get('username') in configs.admin:
 		is_admin = True

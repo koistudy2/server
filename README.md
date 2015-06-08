@@ -46,7 +46,7 @@ enabled=1</pre>
 
 ####OS X
 <pre>$ brew install pkg-config libffi
-$ export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/
+$ export PKG_CONFIG_PATH=/usr/local/[YOUR_USERNAME]/libffi/3.0.13/lib/pkgconfig/
 $ pip install bcrypt</pre>
 ####CentOS/RHEL/Fedora/Ubuntu
 <pre>$ sudo pip install bcrypt</pre>
