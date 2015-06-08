@@ -146,6 +146,8 @@ viewprob_by.en=Source/By
 viewprob_by.ko=출처/출제자
 viewprob_diff.en=Difficulty
 viewprob_diff.ko=난이도
+viewprob_submit_btn.en=Submit
+viewprob_submit_btn.ko=제출
 
 addprob.en=Add problem
 addprob.ko=문제 추가

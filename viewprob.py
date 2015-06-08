@@ -22,7 +22,6 @@ def settheme(theme):
 		if 'username' in session:
 			user = dbhandler.col_members.find_one({"username": session['username']})
 			user['defaulttheme'] = theme
-			print theme
 			dbhandler.col_members.update({'_id': user['_id']}, {"$set": user}, upsert=False)
 			return '{"result": "succeed"}'
 		else:

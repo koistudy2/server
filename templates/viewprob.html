@@ -145,11 +145,21 @@
 			editor.setTheme("ace/theme/{{data.theme}}");
 			$('#sel_theme').val('{{data.theme}}')
 			editor.getSession().setMode("ace/mode/c_cpp");
+			editor.getSession().on('change', function(e) {
+				$("#code").val(editor.getValue());
+			});
 			var settheme = function() {
 				editor.setTheme('ace/theme/' + $('#sel_theme').val());
 				$.get('/settheme/' + $('#sel_theme').val());
 			};
 		</script>
+		<br />
+		<div class="row">
+			<form method="POST" action="/viewprob/{{data.prob.unique_id}}/submit" class="col-md-3 col-md-offset-9">
+				<input id="code" type="hidden" name="code">
+				<input type="submit" value="{{lang['viewprob_submit_btn']}}" class="btn btn-primary btn-block">
+			</form>
+		</div>
 		{%else%}
 		<h2>{{lang['viewprob_pleaselogin']}}</h2>
 		{%endif%}
