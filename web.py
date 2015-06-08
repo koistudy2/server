@@ -25,7 +25,6 @@ else:
 
 @app.before_request
 def initApp():
-	session['locale'] = 'ko'
 	if not 'locale' in session:
 		session['locale'] = request.accept_languages.best_match(['ko', 'en'])
 
@@ -73,6 +72,9 @@ app.route('/settheme/<theme>')(viewprob.settheme)
 import addprob
 app.route('/addprob')(addprob.addprob)
 app.route('/addprob/submit', methods=['POST'])(addprob.addprob_submit)
+
+import changelang
+app.route('/changelang/<lang>')(changelang.changelang)
 
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)

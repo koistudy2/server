@@ -4,4 +4,8 @@ import configs
 import lang
 
 def newrender(title, content, filename='_basic.html', mode='', data=''):
-	return render_template(filename, title=configs.t_prefix + ' - ' + lang.lang[session.get('locale', 'ko')][title], content=content, lang=lang.lang[session.get('locale', 'ko')], menus=configs.menus, session=session, mode=mode, data=data)
+	if 'locale' in session and session['locale']:
+		locale = session['locale']
+	else:
+		locale = 'ko'
+	return render_template(filename, title=configs.t_prefix + ' - ' + lang.lang[locale][title], content=content, lang=lang.lang[locale], menus=configs.menus, session=session, mode=mode, data=data, lang_now=locale)

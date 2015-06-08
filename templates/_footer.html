@@ -1,6 +1,22 @@
 <hr>
 <footer>
-<p>&copy; HLETRD, HYEA, Kenny Park, koosaga, Namnamseo 2015</p>
+	<div class="row">
+		<div class="col-md-8">
+			<p style="display: inline;">&copy; HLETRD, HYEA, Kenny Park, koosaga, Namnamseo 2015</p>
+		</div>
+		<div class="col-md-4">
+			<script>
+			"use strict";
+			var changelang = function(lang){
+				$.get('/changelang/' + lang, {async: false});
+				location.reload();
+			}
+			</script>
+			<p class="text-right">
+				<a href="#" onclick="changelang({%if lang_now == 'ko'%}'en'{%else%}'ko'{%endif%})">{%if lang_now == 'ko'%}English{%else%}한국어{%endif%}</a>
+			</p>
+		</div>
+	</div>
 </footer>
 </div>
 </body>
