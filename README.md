@@ -9,10 +9,12 @@
 
 
 ###Python modules
+####
 ####Installing pip (on CentOS/RHEL/Fedora)
 <pre>$ sudo yum install python-pip </pre>
 ####Installing pip (on Ubuntu)
 <pre>$ sudo apt-get install python-pip </pre>
+Note: Python 2.7.9 and after includes pip by default.
 ####Installing Flask
 <pre>$ sudo pip install Flask</pre>
 ####Installing PyMongo
