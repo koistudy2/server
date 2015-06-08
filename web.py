@@ -70,7 +70,7 @@ app.route('/viewprob/<probid>')(viewprob.viewprob)
 app.route('/settheme/<theme>')(viewprob.settheme)
 
 import submit
-app.route('/submit/<probid>')(viewprob.viewprob)
+app.route('/submit/<probid>', methods=['POST'])(submit.submit)
 
 import addprob
 app.route('/addprob')(addprob.addprob)
