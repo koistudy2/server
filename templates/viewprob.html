@@ -101,7 +101,7 @@
 	</div>
 	<div class="tab-pane" id="submit">
 		{%if session['username']%}
-		Select theme: <select id="sel_theme" onchange="settheme()">
+		{{lang['viewprob_selecttheme']}} <select id="sel_theme" onchange="settheme()">
 			<option value="ambiance">ambiance</option>
 			<option value="chaos">chaos</option>
 			<option value="chrome">chrome</option>

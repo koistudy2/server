@@ -148,6 +148,8 @@ viewprob_diff.en=Difficulty
 viewprob_diff.ko=난이도
 viewprob_submit_btn.en=Submit
 viewprob_submit_btn.ko=제출
+viewprob_selecttheme.en=Select theme
+viewprob_selecttheme.ko=Select theme
 
 addprob.en=Add problem
 addprob.ko=문제 추가
