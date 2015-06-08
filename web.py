@@ -68,6 +68,7 @@ app.route('/changeuser/submit', methods=['POST'])(user.changeuser_submit)
 
 import viewprob
 app.route('/viewprob/<probid>')(viewprob.viewprob)
+app.route('/settheme/<theme>')(viewprob.settheme)
 
 import addprob
 app.route('/addprob')(addprob.addprob)
