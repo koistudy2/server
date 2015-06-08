@@ -6,7 +6,7 @@ s_prefix = './static/' #static 파일 디렉토리:
 menus = [{'name': 'Probs', 'url': 'probs'},
 	{'name': 'Status', 'url': 'status'},
 	{'name': 'Ranks', 'url': 'ranks'},
-	{'name': 'Contests', 'url': 'contest'},
+	{'name': 'Contests', 'url': 'contests'},
 	{'name': 'Board', 'url': 'board'},
 	{'name': 'Stats', 'url': 'stats'}]
 t_prefix = 'KOISTUDYS2' #title prefix

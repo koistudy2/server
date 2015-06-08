@@ -105,10 +105,14 @@ title_error.en=Error
 title_error.ko=오류
 title_probs.en=Problems
 title_probs.ko=문제
+title_contests.en=Contests
+title_contests.ko=대회
 title_viewprob.en=View Problem
 title_viewprob.ko=문제 보기
 title_addprob.en=Add problem
 title_addprob.ko=문제 추가
+title_addcontests.en=Add contests
+title_addcontests.ko=대회 개최
 
 viewprob_unique.en=Unique Name
 viewprob_unique.ko=고유명
@@ -175,3 +179,6 @@ addprob_output_ex.en=Output example
 addprob_output_ex.ko=출력 예시
 addprob_added.en=Problem added.
 addprob_added.ko=문제가 추가되었습니다.
+
+addcontests.en=Add contests
+addcontests.ko=대회 개최
