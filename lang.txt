@@ -184,5 +184,20 @@ addprob_output_ex.ko=출력 예시
 addprob_added.en=Problem added.
 addprob_added.ko=문제가 추가되었습니다.
 
+probs_code.en=Code
+probs_code.ko=문제 코드
+probs_verdict.en=Verdict
+probs_verdict.ko=Verdict
+probs_name.en=Title
+probs_name.ko=문제 이름
+probs_solved.en=Solved
+probs_solved.ko=푼 사람 수
+probs_submits.en=Submits
+probs_submits.ko=제출 수
+probs_diff.en=Diff
+probs_diff.ko=Diff
+probs_modify.en=Modify prob
+probs_modify.ko=문제 수정
+
 addcontests.en=Add contests
 addcontests.ko=대회 개최
