@@ -12,7 +12,10 @@ def addprob():
 
 def addprob_submit():
 	if (session.get('username') in configs.admin):
-		prob = {"unique_id": request.form['uniqid'], 
+		if dbhandler.col_probs.count({"unique_id": request.form['uniqid']}):
+			return newrender('Error', lang.lang[session.get('locale', 'ko')]['addprob_err_dup'])
+		else:
+			prob = {"unique_id": request.form['uniqid'], 
 				"display_name": request.form['title'], 
 				"by": request.form['by'], 
 				"visib" : ('visib' in request.form), 
@@ -25,7 +28,7 @@ def addprob_submit():
 				"exin": request.form['input_ex'], 
 				"exout": request.form['output_ex'], 
 				'solved': 0, 'submits': 0, 'diff': 0}
-		dbhandler.col_probs.insert_one(prob)
-		return newrender("title_addprob", lang.lang[session.get('locale', 'ko')]['addprob_added'])
+			dbhandler.col_probs.insert_one(prob)
+			return newrender("title_addprob", lang.lang[session.get('locale', 'ko')]['addprob_added'])
 	else:
 		return newrender("title_404", "404 Not Found")

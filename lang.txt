@@ -183,6 +183,8 @@ addprob_output_ex.en=Output example
 addprob_output_ex.ko=출력 예시
 addprob_added.en=Problem added.
 addprob_added.ko=문제가 추가되었습니다.
+addprob_err_dup.en=Unique ID already exists.
+addprob_err_dup.ko=이미 존재하는 고유번호입니다.
 
 probs_code.en=Code
 probs_code.ko=문제 코드
