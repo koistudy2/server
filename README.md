@@ -41,6 +41,11 @@ enabled=1</pre>
 <pre>$ sudo apt-get install -y mongodb</pre>
 
 ###[bcrypt](https://github.com/dstufft/bcrypt/)
+
+####OS X
+<pre>$ brew install pkg-config libffi</pre>
+<pre>$ export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/</pre>
+<pre>$ pip install bcrypt</pre>
 ####CentOS/RHEL/Fedora/Ubuntu
 <pre>$ sudo pip install bcrypt</pre>
 
