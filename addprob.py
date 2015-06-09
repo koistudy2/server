@@ -18,6 +18,7 @@ def addprob_submit():
 			prob = {"unique_id": request.form['uniqid'], 
 				"display_name": request.form['title'], 
 				"by": request.form['by'], 
+				"diff": request.form['diff'], 
 				"visib" : ('visib' in request.form), 
 				"gshs" : ('gshs' in request.form), 
 				"limit_time": request.form['tlimit'], 
