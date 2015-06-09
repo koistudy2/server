@@ -8,7 +8,7 @@ from flask import session, request
 import dbhandler
 import bcrypt
 import datetime
-import md5
+import hashlib
 
 import lang
 
@@ -23,7 +23,7 @@ def login_submit():
 			session['activation_email'] = user['email']
 			return newrender('title_login', '', 'login_err.html', 'login_err_email')
 		if 'migrated' in user: #migrated from koistudy1
-			if md5.new(request.form['password']).digest() == user['password']:
+			if hashlib.md5("request.form['password']").hexdigest() == user['password']:
 				session['username'] = request.form['username']
 				session['nickname'] = user['nickname']
 				session['locale'] = user['locale']
