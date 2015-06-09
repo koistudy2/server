@@ -1,4 +1,4 @@
 *.pyc
 secretconfig.py
 uploads/*
-!uploads
+!uploads/dont be empty
