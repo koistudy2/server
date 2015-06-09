@@ -32,7 +32,7 @@ def submitfile():
 				'size': os.path.getsize('./uploads/' + filename_saved)
 			}
 			dbhandler.col_uploads.insert_one(dbfile)
-			return newrender('title_file', lang.lang[session.get('locale', 'ko')]['upload_uploaded'] + ': ' + configs.default_url + '/uploads/' + filename_saved)
+			return newrender('title_file', '', 'upload_result.html', '', {'url': configs.default_url + '/uploads/' + filename_saved})
 		return newrender('title_file', 'Error')
 	else:
 		return error_handler.error_404(0)
