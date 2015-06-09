@@ -113,6 +113,8 @@ title_addprob.en=Add problem
 title_addprob.ko=문제 추가
 title_addcontests.en=Add contests
 title_addcontests.ko=대회 개최
+title_file.en=Upload a file
+title_file.ko=파일 업로드
 
 viewprob_unique.en=Unique Name
 viewprob_unique.ko=고유명
@@ -205,3 +207,12 @@ probs_modify.ko=문제 수정
 
 addcontests.en=Add contests
 addcontests.ko=대회 개최
+
+upload.en=Upload file
+upload.ko=파일 업로드
+upload_select.en=Select a file to upload
+upload_select.ko=업로드할 파일을 선택하세요.
+upload_upload.en=Upload
+upload_upload.ko=업로드
+upload_uploaded.en=File uploaded
+upload_uploaded.ko=파일이 업로드되었습니다.

@@ -11,6 +11,7 @@ import dbhandler
 
 #make context
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = configs.max_upload
 
 #to supress unicodedecodeerror
 import sys
@@ -84,7 +85,7 @@ app.route('/changelang/<lang>')(changelang.changelang)
 import upload
 app.route('/upload')(upload.upload)
 app.route('/upload/submit', methods=['POST'])(upload.submitfile)
-app.route('/userfile/<filename>')(upload.userfile)
+app.route('/uploads/<filename>')(upload.userfile)
 
 
 

@@ -1,6 +1,11 @@
 {%include '_header.html'%}
-<form action="/upload/submit" method="post" enctype="multipart/form-data">
-	Select File: <input type="file" name="file"><br/>
-	<input type="submit" value="Upload Files">
-</form>
+<div class="row">
+	<form action="/upload/submit" method="POST" enctype="multipart/form-data" class="col-md-8 col-md-offset-2">
+		{{lang['upload_select']}}
+		<br />
+		<input type="file" class="form-control" name="file"><br/>
+		<input type="submit" class="btn btn-block btn-default" value="{{lang['upload_upload']}}">
+		<br />
+	</form>
+</div>
 {%include '_footer.html'%}

@@ -38,6 +38,9 @@
 				{%for menu in menus%}
 				<li><a href="/{{menu.url}}">{{menu.name}}</a></li>
 				{%endfor%}
+				{%if data['is_admin']%}
+				<li><a href="/upload">{{lang['upload']}}</a></li>
+				{%endif%}
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="padding-left: 15px">
 				{%if session.username is defined%}

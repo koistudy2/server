@@ -15,6 +15,7 @@ default_url = 'https://koistudy2.0101010101.com' #no slash, please
 probs_per_page = 20
 admin = ['hletrd', 'hletrd002', 'Namnamseo', 'koosaga', 'HYEA']
 langs = ['ko', 'en']
+max_upload = 100 * 1024 * 1024
 
 execfile('secretconfig.py')
 #recaptcha_secret, gmail_id, gmail_pw have to be defined
