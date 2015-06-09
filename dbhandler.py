@@ -10,3 +10,4 @@ col_probs = db.probs
 col_contests = db.contests
 col_descs = db.descs
 col_judges = db.judges
+col_uploads = db.uploads

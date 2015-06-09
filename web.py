@@ -81,6 +81,12 @@ app.route('/addprob/submit', methods=['POST'])(addprob.addprob_submit)
 import changelang
 app.route('/changelang/<lang>')(changelang.changelang)
 
+import upload
+app.route('/upload')(upload.upload)
+app.route('/upload/submit', methods=['POST'])(upload.submitfile)
+app.route('/userfile/<filename>')(upload.userfile)
+
+
+
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)
-
