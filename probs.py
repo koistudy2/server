@@ -11,20 +11,20 @@ def probs(page=1):
 	key_list = [('unique_id','Code'), ('verdict','Verdict'), ('display_name','Name'), ('solved','Solved'), ('submits','Submits'), ('diff','Diff')]
 	is_admin = False
 	if 'username' in session and session['username'] in configs.admin:
-		submit_list = dbhandler.col_probs.find().skip(page * configs.probs_per_page).limit(configs.probs_per_page)
+		prob_list = dbhandler.col_probs.find().skip(page * configs.probs_per_page).limit(configs.probs_per_page)
 		probcnt = dbhandler.col_probs.count()
 		is_admin = True
 	elif 'username' in session and session['username']:
 		user = dbhandler.col_members.find_one({"username": session['username']})
 		if 'gshs' in user:
-			submit_list = dbhandler.col_probs.find({"visib": False}).skip(page * configs.probs_per_page).limit(configs.probs_per_page)
-			probcnt = dbhandler.col_probs.count({"visib": False})
+			prob_list = dbhandler.col_probs.find({"visib": True}).skip(page * configs.probs_per_page).limit(configs.probs_per_page)
+			probcnt = dbhandler.col_probs.count({"visib": True})
 		else:
-			submit_list = dbhandler.col_probs.find({"visib": False, "gshs": False}).skip(page * configs.probs_per_page).limit(configs.probs_per_page)
-			probcnt = dbhandler.col_probs.count({"visib": False, "gshs": False})
+			prob_list = dbhandler.col_probs.find({"visib": True, "gshs": False}).skip(page * configs.probs_per_page).limit(configs.probs_per_page)
+			probcnt = dbhandler.col_probs.count({"visib": True, "gshs": False})
 	else:
-		submit_list = dbhandler.col_probs.find({"visib": False, "gshs": False}).skip(page * configs.probs_per_page).limit(configs.probs_per_page)
-		probcnt = dbhandler.col_probs.count({"visib": False, "gshs": False})
+		prob_list = dbhandler.col_probs.find({"visib": True, "gshs": False}).skip(page * configs.probs_per_page).limit(configs.probs_per_page)
+		probcnt = dbhandler.col_probs.count({"visib": True, "gshs": False})
 	user = dbhandler.col_members.find({"username": session.get('username')})
 	if session.get('username') in configs.admin:
 		is_admin = True
@@ -48,4 +48,4 @@ def probs(page=1):
 		pager1 = 0
 		pager2 = 0
 		pager3 = 0
-	return newrender('title_probs', '', 'probs.html', 'probs', {'submit_list':submit_list, 'key_list':key_list, 'is_admin': is_admin, 'pagenow': page, 'pagel0': page-3, 'pagel1': page-2, 'pagel2': page-1, 'pager1': pager1, 'pager2': pager2, 'pager3': pager3, 'is_admin': is_admin})
+	return newrender('title_probs', '', 'probs.html', 'probs', {'prob_list':prob_list, 'key_list':key_list, 'is_admin': is_admin, 'pagenow': page, 'pagel0': page-3, 'pagel1': page-2, 'pagel2': page-1, 'pager1': pager1, 'pager2': pager2, 'pager3': pager3, 'is_admin': is_admin})

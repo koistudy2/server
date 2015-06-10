@@ -86,6 +86,8 @@ changeuser_err_name.en=Wrong name
 changeuser_err_name.ko=이름이 잘못되었습니다.
 changeuser_err_email.en=Invalid email address.
 changeuser_err_email.ko=이메일 주소가 잘못되었습니다.
+changeuser_err_unknown.en=Unknown error
+changeuser_err_unknown.ko=알 수 없는 오류
 
 title_signup.en=Sign Up
 title_signup.ko=회원가입
@@ -191,6 +193,8 @@ addprob_added.en=Problem added.
 addprob_added.ko=문제가 추가되었습니다.
 addprob_err_dup.en=Unique ID already exists.
 addprob_err_dup.ko=이미 존재하는 고유번호입니다.
+addprob_err_timemem.en=Time and/or memory limit is not valid.
+addprob_err_timemem.ko=시간이나 메모리 제한이 올바르지 않습니다.
 
 probs_code.en=Code
 probs_code.ko=문제 코드

@@ -3,7 +3,7 @@ from flask import session,render_template
 import configs
 import lang
 
-def newrender(title, content, filename='_basic.html', mode='', data={'is_admin': False}):
+def newrender(title, content='', filename='_basic.html', mode='', data={'is_admin': False}):
 	if 'locale' in session and session['locale']:
 		locale = session['locale']
 	else:

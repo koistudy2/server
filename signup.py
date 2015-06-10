@@ -18,7 +18,7 @@ import re
 import lang
 
 def signup():
-	return newrender('title_signup', '', 'signup.html')
+	return newrender('title_signup', filename='signup.html')
 
 def signup_submit():
 	params = urllib.urlencode({'secret': configs.recaptcha_secret, 'response': request.form['g-recaptcha-response']})
@@ -28,7 +28,7 @@ def signup_submit():
 	res = conn.getresponse()
 	result = json.loads(res.read())
 	if not result['success']:
-		return newrender('title_signup', '', 'signup_err.html', 'signup_err_captcha')
+		return newrender("title_signup", filename='basic_display.html', mode='signup_err_captcha')
 	else:
 		if re.match(u'^[a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣぁ-ゔァ-ヴー々〆〤0-9_\\-.]{4,20}$', request.form['username']):
 			if re.match('^.{6,200}$', request.form['password']):
@@ -39,12 +39,12 @@ def signup_submit():
 							try:
 								idchecker = dbhandler.col_members.find_one({"username": request.form['username']})
 								if idchecker['username']:
-									return newrender('title_signup', '', 'signup_err.html', 'signup_err_iddup')
+									return newrender("title_signup", filename='basic_display.html', mode='signup_err_iddup')
 							except TypeError:
 								try:
 									emailchecker = dbhandler.col_members.find_one({"email": request.form['email']})
 									if emailchecker['username']:
-										return newrender('title_signup', '', 'signup_err.html', 'signup_err_emaildup')
+										return newrender("title_signup", filename='basic_display.html', mode='signup_err_emaildup')
 								except TypeError:
 									import bcrypt
 									activation_link = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(16))
@@ -64,17 +64,17 @@ def signup_submit():
 									s.sendmail(msg['From'], msg['To'], msg.as_string())
 									s.quit()
 									dbhandler.col_members.insert_one(human)
-									return newrender('title_signup', lang.lang[session.get('locale', 'ko')]['signup_complete'])
+									return newrender('title_signup', filename='basic_display.html', mode='signup_complete')
 						else:
-							return newrender('title_signup', '', 'signup_err.html', 'signup_err_email')
+							return newrender("title_signup", filename='basic_display.html', mode='signup_err_email')
 					else:
-						return newrender('title_signup', '', 'signup_err.html', 'signup_err_name')
+						return newrender("title_signup", filename='basic_display.html', mode='signup_err_name')
 				else:
-					return newrender('title_signup', '', 'signup_err.html', 'signup_err_pwmatch')
+					return newrender("title_signup", filename='basic_display.html', mode='signup_err_pwmatch')
 			else:
-				return newrender('title_signup', '', 'signup_err.html', 'signup_err_password')
+				return newrender("title_signup", filename='basic_display.html', mode='signup_err_password')
 		else:
-			return newrender('title_signup', '', 'signup_err.html', 'signup_err_username')
+			return newrender("title_signup", filename='basic_display.html', mode='signup_err_username')
 
 def confirm(path):
 	import dbhandler
@@ -85,11 +85,11 @@ def confirm(path):
 			newuser['activated'] = True
 			del newuser['activation_link']
 			dbhandler.col_members.update({'_id': user['_id']}, {"$set": newuser}, upsert=False)
-			return newrender('title_signup', lang.lang[session.get('locale', 'ko')]['signup_verification_complete'])
+			return newrender('title_signup', filename='basic_display.html', mode='signup_verification_complete')
 		else:
-			return newrender('title_signup', '', 'signup_err.html', 'signup_err_link')
+			return newrender("title_signup", filename='basic_display.html', mode='signup_err_link')
 	except TypeError:
-		return newrender('title_signup', '', 'signup_err.html', 'signup_err_link')
+		return newrender("title_signup", filename='basic_display.html', mode='signup_err_link')
 
 def resend():
 	try:

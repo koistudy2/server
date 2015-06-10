@@ -18,9 +18,9 @@ def user():
 		data['name'] = user['name']
 		data['username'] = user['username']
 		data['nickname'] = user['nickname']
-		return newrender('title_user', '', 'user.html', '', data)
+		return newrender('title_user', filename='user.html', data=data)
 	except KeyError:
-		return newrender('title_error', 'Error')
+		return newrender('title_user', filename='basic_display.html', mode='changeuser_err_unknown')
 
 def changeuser():
 	try:
@@ -30,9 +30,9 @@ def changeuser():
 		data['username'] = user['username']
 		data['nickname'] = user['nickname']
 		data['email'] = user['email']
-		return newrender('title_user', '', 'changeuser.html', '', data)
+		return newrender('title_user', filename='changeuser.html', data=data)
 	except KeyError:
-		return newrender('title_error', 'Error')
+		return newrender('title_user', filename='basic_display.html', mode='changeuser_err_unknown')
 
 def changeuser_submit():
 	
@@ -45,20 +45,20 @@ def changeuser_submit():
 					if request.form['password_new'] == request.form['password_new_re']:
 						user['password'] = bcrypt.hashpw(request.form['password_new'].encode("UTF-8"), user['password'])
 					else:
-						return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_pw_match')
+						return newrender('title_user', filename='basic_display.html', mode='changeuser_err_pw_match')
 				else:
-					return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_pw_format')
+					return newrender('title_user', filename='basic_display.html', mode='changeuser_err_pw_format')
 			if re.match(u'^[가-힣A-Za-zぁ-ゔァ-ヴー々〆〤 ]{2,30}$', request.form['name']):
 				user['name'] = request.form['name']
 			else:
-				return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_name')
+				return newrender('title_user', filename='basic_display.html', mode='changeuser_err_name')
 			#if re.match('^[a-zA-Z._+\\-0-9]+@[a-z0-9.\\-]+\\.[a-z]{2,5}$', request.form['email']):
 				#user['email'] = request.form['email']
 			#else:
 			#	return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_email')
 			dbhandler.col_members.update({'_id': user['_id']}, {"$set": user}, upsert=False)
-			return newrender('title_user', lang.lang[session.get('locale', 'ko')]['changeuser_complete'])
+			return newrender('title_user', filename='basic_display.html', mode='changeuser_complete')
 		else:
-			return newrender('title_user', '', 'changeuser_err.html', 'changeuser_err_pw')
+			return newrender('title_user', filename='basic_display.html', mode='changeuser_err_pw')
 	except KeyError:
-		return newrender('title_error', 'Error')
+		return newrender('title_user', filename='basic_display.html', mode='changeuser_err_unknown')
