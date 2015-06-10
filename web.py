@@ -19,12 +19,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 #session setup
-if os.path.exists("/dev/random"):
-	app.secret_key = open("/dev/random","rb").read(32)
-elif os.path.exists("/dev/urandom"):
-	app.secret_key = open("/dev/urandom","rb").read(32)
-else:
-	app.secret_key = ''.join(random.choice(string.ascii_uppercase) for _ in range(32))
+app.secret_key = ''.join(random.choice(string.ascii_letters+string.digits) for _ in range(32))
 
 @app.before_request
 def initApp():
