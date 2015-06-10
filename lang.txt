@@ -115,6 +115,8 @@ title_addcontests.en=Add contests
 title_addcontests.ko=대회 개최
 title_file.en=Upload a file
 title_file.ko=파일 업로드
+title_editprob.en=Edit Problem
+title_editprob.ko=문제 수정
 
 viewprob_unique.en=Unique Name
 viewprob_unique.ko=고유명
@@ -202,8 +204,8 @@ probs_submits.en=Submits
 probs_submits.ko=제출 수
 probs_diff.en=Diff
 probs_diff.ko=Diff
-probs_modify.en=Modify prob
-probs_modify.ko=문제 수정
+probs_edit.en=Edit problem
+probs_edit.ko=문제 수정
 
 addcontests.en=Add contests
 addcontests.ko=대회 개최
@@ -216,3 +218,10 @@ upload_upload.en=Upload
 upload_upload.ko=업로드
 upload_uploaded.en=File uploaded
 upload_uploaded.ko=파일이 업로드되었습니다.
+
+editprob_submit.en=Apply
+editprob_submit.ko=적용
+editprob_err_nosuch.en=No problem with the unique id exists.
+editprob_err_nosuch.ko=고유명이 일치하는 문제가 없습니다.
+editprob_success.en=Edit Success
+editprob_success.ko=편집이 완료되었습니다.

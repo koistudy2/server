@@ -1,0 +1,74 @@
+{%include '_header.html'%}
+<div class="row">
+	<form action="/editprob/{{data.unique_id}}/submit" method="POST" class="col-md-offset-1 col-md-10">
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_uniqid']}}</label></div>
+			<div class="col-md-9">{{data.unique_id}}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_title']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="title" value="{{data.display_name}}"></div>
+		</div>
+		<br />
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_by']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="by" value="{{data.by}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_diff']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="diff" value="{{data.diff}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_visib']}}</label></div>
+			<div class="col-md-9"><input type="checkbox" name="visib" {%if data.visib==True%} checked {%endif%}></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_gshs']}}</label></div>
+			<div class="col-md-9"><input type="checkbox" name="gshs" {%if data.gshs==True%} checked {%endif%}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_tlimit']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="tlimit" value="{{data.limit_time}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_mlimit']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="mlimit" value="{{data.limit_memory}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_desc']}}</label></div>
+			<div class="col-md-9"><textarea class="form-control" rows="10" name="desc">{{data.desc}}</textarea></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_input']}}</label></div>
+			<div class="col-md-9"><textarea class="form-control" rows="10" name="input">{{data.input}}</textarea></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_output']}}</label></div>
+			<div class="col-md-9"><textarea class="form-control" rows="10" name="output">{{data.output}}</textarea></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_input_ex']}}</label></div>
+			<div class="col-md-9"><textarea class="form-control" rows="10" name="input_ex">{{data.exin}}</textarea></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addprob_output_ex']}}</label></div>
+			<div class="col-md-9"><textarea class="form-control" rows="10" name="output_ex">{{data.exout}}</textarea></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-6 col-md-offset-6"><input type="submit" class="btn btn-primary btn-block" value="{{lang['editprob_submit']}}"></div>
+		</div>
+	</form>
+</div>
+{%include '_footer.html'%}

@@ -87,7 +87,9 @@ app.route('/upload')(upload.upload)
 app.route('/upload/submit', methods=['POST'])(upload.submitfile)
 app.route('/uploads/<filename>')(upload.userfile)
 
-
+import editprob
+app.route('/editprob/<probid>')(editprob.editprob)
+app.route('/editprob/<probid>/submit',methods=['POST'])(editprob.editprob_submit)
 
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)
