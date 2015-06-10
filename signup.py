@@ -84,6 +84,7 @@ def confirm(path):
                         newuser = dict(user)
 			newuser['activated'] = True
 			del newuser['activation_link']
+			del newuser['_id']
 			dbhandler.col_members.update({'_id': user['_id']}, {"$set": newuser}, upsert=False)
 			return newrender('title_signup', filename='basic_display.html', mode='signup_verification_complete')
 		else:
