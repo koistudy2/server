@@ -52,7 +52,7 @@ def signup_submit():
 										locale = session['locale']
 									else:
 										locale = 'ko'
-									human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'].encode('UTF-8'), bcrypt.gensalt()), "name": request.form['name'], "nickname": request.form['nickname'], "email": request.form['email'], 'activated': False, 'activation_link': activation_link, 'locale': locale}
+									human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'].encode('UTF-8'), bcrypt.gensalt(configs.bcrypt_round)), "name": request.form['name'], "nickname": request.form['nickname'], "email": request.form['email'], 'activated': False, 'activation_link': activation_link, 'locale': locale}
 									msg = MIMEText(render_template('email.txt', link=configs.default_url + '/confirm/' + activation_link).encode('utf-8'), 'html', 'utf-8')
 									msg['Subject'] = Header(lang.lang[session.get('locale', 'ko')]['signup_welcome'], 'utf-8')
 									msg['From'] = configs.gmail_id + '@gmail.com'
