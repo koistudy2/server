@@ -43,7 +43,7 @@ def changeuser_submit():
 			if request.form['password_new'] != '':
 				if re.match('^.{6,200}$', request.form['password_new']):
 					if request.form['password_new'] == request.form['password_new_re']:
-						user['password'] = bcrypt.hashpw(request.form['password_new'].encode("UTF-8"), user['password'])
+						user['password'] = bcrypt.hashpw(request.form['password_new'].encode("UTF-8"), bcrypt.gensalt(configs.bcrypt_round))
 					else:
 						return newrender('title_user', filename='basic_display.html', mode='changeuser_err_pw_match')
 				else:
