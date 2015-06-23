@@ -16,7 +16,7 @@ probs_per_page = 20
 admin = ['hletrd', 'hletrd002', 'Namnamseo', 'koosaga', 'HYEA']
 langs = ['ko', 'en']
 max_upload = 100 * 1024 * 1024
-bcrypt_round = 12
+bcrypt_round = 12 #4096(2^12) iterations
 
 execfile('secretconfig.py')
 #recaptcha_secret, gmail_id, gmail_pw have to be defined
