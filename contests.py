@@ -14,7 +14,7 @@ def contests(page=1):
 		user=session['username']
 	else:
 		user=''
-	key_list = [('contest_id','Code'), ('display_name','Name'), ('starts','Starts'), ('ends','Ends'),('duration','Duration'),('type','Type')]
+	key_list = [('unique_id','Code'), ('display_name','Name'), ('start','Starts'), ('end','Ends'),('duration','Duration'),('type','Type')]
 	is_admin = (user in configs.admin)
 	lastpage = ceil(1.0 * contest_count / configs.contests_per_page)
 	page += 1
