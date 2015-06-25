@@ -1,0 +1,40 @@
+{%include '_header.html'%}
+<div class="row">
+	<form action="/addcontest/submit" method="POST" class="col-md-offset-1 col-md-10">
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addcontest_title']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="title" placeholder="{{lang['addcontest_title']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addcontest_unique_id']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="unique_id" placeholder="{{lang['addcontest_unique_id']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addcontest_start']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="start" placeholder="{{lang['addcontest_start']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addcontest_end']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="end" placeholder="{{lang['addcontest_end']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addcontest_duration']}}</label></div>
+			<div class="col-md-9"><input type="text" class="form-control" name="duration" placeholder="{{lang['addcontest_duration']}}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-3"><label>{{lang['addcontest_type']}}</label></div>
+			<div class="col-md-4"><input type="radio" name="type" value='Public' id='public' checked><label for='public'>{{lang['addcontest_public']}}</label></div>
+			<div class="col-md-4"><input type="radio" name="type" value='Private' id='private'><label for='private'>{{lang['addcontest_private']}}</label></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-md-6 col-md-offset-6"><input type="submit" class="btn btn-primary btn-block" value="{{lang['addcontest_submit']}}"></div>
+		</div>
+	</form>
+</div>
+{%include '_footer.html'%}

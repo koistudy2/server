@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="container">
 		{%if data.is_admin == True%}
-		<a href="/addcontests" class="btn btn-primary">{{lang['addcontests']}}</a>
+		<a href="/addcontest" class="btn btn-primary">{{lang['addcontest']}}</a>
 		<br /><br />
 		{%endif%}
 		<table class="table table-bordered">
@@ -14,7 +14,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{%for eachcont in data.submit_list%}
+				{%for eachcont in data.contest_list%}
 				<tr>
 					{%for key,name in data.key_list%}
 					<td>
@@ -36,27 +36,27 @@
 				<ul class="pagination">
 				{%if data.pagenow > 3%}
 				<li>
-					<a href="#">
+					<a href="/contests/{{data.pagel0}}">
 					<span>&laquo;</span>
 					</a>
 				</li>
 				{%endif%}
 				{%if data.pagenow > 2%}
-				<li><a href="#">{{data.pagel1}}</a></li>
+				<li><a href="/contests/{{data.pagel1}}">{{data.pagel1}}</a></li>
 				{%endif%}
 				{%if data.pagenow > 1%}
-				<li><a href="#">{{data.pagel2}}</a></li>
+				<li><a href="/contests/{{data.pagel2}}">{{data.pagel2}}</a></li>
 				{%endif%}
-				<li><a href="#">{{data.pagenow}}</a></li>
+				<li><a href="/contests/{{data.pagenow}}">{{data.pagenow}}</a></li>
 				{%if data.pager1 != 0%}
-				<li><a href="#">{{data.pager1}}</a></li>
+				<li><a href="/contests/{{data.pager1}}">{{data.pager1}}</a></li>
 				{%endif%}
 				{%if data.pager2 != 0%}
-				<li><a href="#">{{data.pager2}}</a></li>
+				<li><a href="/contests/{{data.pager2}}">{{data.pager2}}</a></li>
 				{%endif%}
 				{%if data.pager3 != 0%}
 				<li>
-					<a href="#">
+					<a href="/contests/{{data.pager3}}">
 					<span>&raquo;</span>
 					</a>
 				</li>

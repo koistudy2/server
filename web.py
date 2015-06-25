@@ -86,5 +86,12 @@ import editprob
 app.route('/editprob/<probid>')(editprob.editprob)
 app.route('/editprob/<probid>/submit',methods=['POST'])(editprob.editprob_submit)
 
+import contests
+app.route('/contests')(contests.contests)
+
+import addcontest
+app.route('/addcontest')(addcontest.addcontest)
+app.route('/addcontest/submit',methods=['POST'])(addcontest.addcontest_submit)
+
 if __name__ == '__main__':
 	app.run(debug=configs.debugMode, port=5000)

@@ -21,7 +21,7 @@ def addprob_submit():
 					"display_name": request.form['title'], 
 					"by": request.form['by'], 
 					"diff": request.form['diff'], 
-					"visib" : ('visib' not in request.form), 
+					"adminonly" : ('adminonly' in request.form),
 					"gshs" : ('gshs' in request.form), 
 					"limit_time": int(request.form['tlimit']), 
 					"limit_memory": int(request.form['mlimit']), 
