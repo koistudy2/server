@@ -4,6 +4,9 @@ import configs
 import dbhandler
 import lang
 import re
+import httplib
+import urllib
+import json
 
 def addprob():
 	if (session.get('username') in configs.admin):
@@ -16,7 +19,7 @@ def addprob_submit():
 		if dbhandler.col_probs.count({"unique_id": request.form['uniqid']}):
 			return newrender('title_addprob', filename='basic_display.html', mode='addprob_err_dup')
 		else:
-			if re.match('[0-9]+',request.form['tlimit']) and re.match('[0-9]+',request.form['mlimit']):
+			if re.match('[0-9]+',request.form['tlimit']) and re.match('[0-9]+',request.form['mlimit']) and re.match('[^/]+', request.form['uniqid']):
 				prob = {"unique_id": request.form['uniqid'], 
 					"display_name": request.form['title'], 
 					"by": request.form['by'], 
@@ -32,6 +35,20 @@ def addprob_submit():
 					"exout": request.form['output_ex'], 
 					'solved': 0, 'submits': 0, 'diff': 0}
 				dbhandler.col_probs.insert_one(prob)
+
+				#elasticsearch indexing
+				#creating new index
+				conn = httplib.HTTPConnection('localhost', 9200)
+				conn.request("PUT", "/koistudy")
+				res = conn.getresponse()
+				result = res.read()
+
+				#creating document
+				params = urllib.urlencode(json.dumps(prob))
+				conn = httplib.HTTPConnection('localhost', 9200)
+				conn.request("POST", "/koistudy/probs/" + request.form['unique_id'], params)
+				res = conn.getresponse()
+				result = res.read()
 				return newrender("title_addprob", filename='basic_display.html', mode='addprob_added')
 			else:
 				return newrender('title_addprob', filename='basic_display.html', mode='addprob_err_timemem')
