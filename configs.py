@@ -14,7 +14,7 @@ default_url = 'https://koistudy2.0101010101.com' #no slash, please
 
 probs_per_page = 20
 contests_per_page = 20
-admin = ['hletrd', 'hletrd002', 'Namnamseo', 'koosaga', 'HYEA']
+admin = ['hletrd', 'hletrd002', 'Namnamseo', 'koosaga', 'HYEA', 'seungwonpark']
 langs = ['ko', 'en']
 max_upload = 100 * 1024 * 1024
 bcrypt_round = 12 #4096(2^12) iterations
