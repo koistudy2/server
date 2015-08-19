@@ -13,7 +13,7 @@ import dbhandler
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = configs.max_upload
 
-#to supress unicodedecodeerror
+#to suppress unicodedecodeerror
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -62,6 +62,8 @@ import user
 app.route('/user')(user.user)
 app.route('/changeuser')(user.changeuser)
 app.route('/changeuser/submit', methods=['POST'])(user.changeuser_submit)
+app.route('/findacc')(user.findacc)
+app.route('/findacc/submit', methods=['POST'])(user.findacc_submit)
 
 import viewprob
 app.route('/viewprob/<probid>')(viewprob.viewprob)
