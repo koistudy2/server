@@ -48,15 +48,21 @@ signup_email_resend.ko=확인 메일 다시 보내기
 back.en=Back
 back.ko=뒤로
 login_err_pw.en=Username and/or password do not match.
-login_err_pw.ko=아이디 또는/와 비밀번호가 잘못되었습니다.
+login_err_pw.ko=아이디와 비밀번호 중 하나 이상이 잘못되었습니다.
 login_err_username.en=Username and/or password do not match.
-login_err_username.ko=아이디 또는/와 비밀번호가 잘못되었습니다.
+login_err_username.ko=아이디와 비밀번호 중 하나 이상이 잘못되었습니다.
 login_err_email.en=Account not yet verified. Please check the email.
 login_err_email.ko=아직 인증되지 않은 계정입니다. 이메일을 확인하시기 바랍니다.
 login_err_session.en=Session expired.
 login_err_session.ko=세션이 만료되었습니다. 다시 시도해주세요.
 login_err_resent.en=Verification mail resent.
 login_err_resent.ko=확인 메일을 다시 발송했습니다.
+findacc.en=Forgot username/password
+findacc.ko=사용자명/비밀번호 찾기
+findacc_submit.en=Submit
+findacc_submit.ko=확인
+findacc_notice.en=Enter the email address associated with your account.
+findacc_notice.ko=가입할 때 사용하셨던 이메일 주소를 입력해주세요.
 logout.en=Sign out
 logout.ko=로그아웃
 
@@ -249,3 +255,5 @@ addcontest_public.en=Public
 addcontest_public.ko=제한없음
 addcontest_private.en=Private
 addcontest_private.ko=비밀번호 필요
+
+
