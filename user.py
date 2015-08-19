@@ -35,7 +35,6 @@ def changeuser():
 		return newrender('title_user', filename='basic_display.html', mode='changeuser_err_unknown')
 
 def changeuser_submit():
-	
 	try:
 		user = dbhandler.col_members.find_one({"username": session['username']})
 		data = {}
@@ -62,3 +61,6 @@ def changeuser_submit():
 			return newrender('title_user', filename='basic_display.html', mode='changeuser_err_pw')
 	except KeyError:
 		return newrender('title_user', filename='basic_display.html', mode='changeuser_err_unknown')
+
+def findacc():
+	return newrender('findacc', filename='findacc.html')

@@ -5,5 +5,34 @@
 		<br />
 		<a href="{{data.url}}">{{data.url}}</a>
 	</div>
+	<table class="table table-striped table-responsive">
+		<thead>
+			<tr>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for eachprob in data.submit_list%}
+			<tr>
+				{%for key,name in data.key_list%}
+				<td>
+					{%if key == 'display_name'%}
+						<a href="/viewprob/{{eachprob['unique_id']}}">
+					{%endif%}
+					{{eachprob[key]}}
+					{%if key == 'name'%}
+						</a>
+					{%endif%}
+				</td>
+				{%endfor%}
+				{%if data['is_admin']%}
+				<td>
+					<a href="/modifyprob/{{eachprob['unique_id']}}" class="btn btn-primary">{{lang['probs_modify']}}</a>
+				</td>
+				{%endif%}
+			</tr>
+			{%endfor%}
+		</tbody>
+	</table>
 </div>
 {%include '_footer.html'%}
