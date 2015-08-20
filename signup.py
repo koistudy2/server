@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 #Logic Related to Signup
 
-from flask import render_template, session, request
+from flask import render_template, session, request, session
 from functional import newrender
-from flask import request,session
 import httplib
 import urllib
 import json
