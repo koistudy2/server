@@ -35,22 +35,15 @@ def probs(page=1):
 		is_admin = False
 	lastpage = math.ceil(1.0 * probcnt / configs.probs_per_page)
 	page += 1
+	pager1 = 0
+	pager2 = 0
+	pager3 = 0
+	if lastpage >= page+1:
+		pager1 = page+1
+	if lastpage >= page+2:
+		pager2 = page+2
 	if lastpage >= page+3:
-		pager1 = page+1
-		pager2 = page+2
 		pager3 = page+3
-	elif lastpage >= page+2:
-		pager1 = page+1
-		pager2 = page+2
-		pager3 = 0
-	elif lastpage >= page+1:
-		pager1 = page+1
-		pager2 = 0
-		pager3 = 0
-	else:
-		pager1 = 0
-		pager2 = 0
-		pager3 = 0
 	return newrender('title_probs', '', 'probs.html', 'probs', 
 		{'prob_list':prob_list, 
 		 'key_list':key_list,
