@@ -39,6 +39,10 @@ enabled=1</pre>
 <pre>$ sudo yum install -y mongodb-org</pre>
  - You may install mongodb 2.4 by yum install -y mongodb, but it may conflict with other packages.
 
+#### CentOS 7
+- run following
+<pre>$ sudo yum install -y mongodb-server</pre>
+
 #### Ubuntu
 <pre>$ sudo apt-get install -y mongodb</pre>
 
