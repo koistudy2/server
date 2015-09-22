@@ -63,7 +63,7 @@ app.route('/user')(user.user)
 app.route('/changeuser')(user.changeuser)
 app.route('/changeuser/submit', methods=['POST'])(user.changeuser_submit)
 app.route('/findacc')(user.findacc)
-app.route('/findacc/submit', methods=['POST'])(user.findacc_submit)
+#app.route('/findacc/submit', methods=['POST'])(user.findacc_submit)
 
 import viewprob
 app.route('/viewprob/<probid>')(viewprob.viewprob)
