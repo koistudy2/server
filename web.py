@@ -22,7 +22,7 @@ sys.setdefaultencoding('utf-8')
 app.secret_key = ''.join(random.choice(string.ascii_letters+string.digits) for _ in range(32))
 
 @app.before_request
-def initApp():
+def guessLocale():
 	if not 'locale' in session or not session['locale']:
 		session['locale'] = request.accept_languages.best_match(['ko', 'en']) or 'ko'
 

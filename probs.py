@@ -9,7 +9,7 @@ import lang
 
 def probs(page=1):
 	page -= 1
-	a = lang.lang[session.get('locale', 'ko')]
+	a = lang.lang[session['locale']]
 	key_list = [('unique_id', a['probs_code']), ('verdict', a['probs_verdict']), ('display_name', a['probs_name']), ('solved', a['probs_solved']), ('submits', a['probs_submits']), ('diff',a['probs_diff'])]
 	is_admin = False
 	if 'username' in session and session['username'] in configs.admin:

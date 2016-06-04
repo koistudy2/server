@@ -47,13 +47,10 @@ def signup_submit():
 								except TypeError:
 									import bcrypt
 									activation_link = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(16))
-									if 'locale' in session and session['locale']:
-										locale = session['locale']
-									else:
-										locale = 'ko'
+									locale = session['locale']
 									human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'].encode('UTF-8'), bcrypt.gensalt(configs.bcrypt_round)), "name": request.form['name'], "nickname": request.form['nickname'], "email": request.form['email'], 'activated': False, 'activation_link': activation_link, 'locale': locale}
 									msg = MIMEText(render_template('email.txt', link=configs.default_url + '/confirm/' + activation_link).encode('utf-8'), 'html', 'utf-8')
-									msg['Subject'] = Header(lang.lang[session.get('locale', 'ko')]['signup_welcome'], 'utf-8')
+									msg['Subject'] = Header(lang.lang[session['locale']]['signup_welcome'], 'utf-8')
 									msg['From'] = configs.gmail_id + '@gmail.com'
 									msg['To'] = request.form['email']
 									s = SMTP_SSL('smtp.gmail.com', 465, timeout=10)
@@ -94,7 +91,7 @@ def confirm(path):
 def resend():
 	try:
 		msg = MIMEText(render_template('email.txt', link=configs.default_url + '/confirm/' + session['activation_link']).encode('utf-8'), 'html', 'utf-8')
-		msg['Subject'] = Header(lang.lang[session.get('locale', 'ko')]['signup_welcome'], 'utf-8')
+		msg['Subject'] = Header(lang.lang[session['locale']]['signup_welcome'], 'utf-8')
 		msg['From'] = configs.gmail_id + '@gmail.com'
 		msg['To'] = session['activation_email']
 		s = SMTP_SSL('smtp.gmail.com', 465, timeout=10)

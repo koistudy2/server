@@ -21,6 +21,6 @@ def addcontest_submit():
 		if(cur_contest['type'] == 'Private'):
 			cur_contest['password']=request.form['password']
 		dbhandler.col_contests.insert_one(cur_contest)
-		return newrender("title_addcontest", lang.lang[session.get('locale', 'ko')]['addcontest_added'])
+		return newrender("title_addcontest", lang.lang[session['locale']]['addcontest_added'])
 	else:
 		return newrender("title_404", "404 Not Found")
