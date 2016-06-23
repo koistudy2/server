@@ -77,7 +77,7 @@ def confirm(path):
 	try:
 		user = dbhandler.col_members.find_one({"activation_link": path})
 		if user['activated'] == False:
-                        newuser = dict(user)
+			newuser = dict(user)
 			newuser['activated'] = True
 			del newuser['activation_link']
 			del newuser['_id']
