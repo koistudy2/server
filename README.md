@@ -14,13 +14,16 @@
 ####Installing pip (on Ubuntu)
 <pre>$ sudo apt-get install python-pip </pre>
 Note: Python 2.7.9 and after includes pip by default.
+####Installing pip (on macOS)
+<pre>$ curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python
+$ sudo easy_install pip</pre>
 ####Installing Flask
 <pre>$ sudo pip install Flask</pre>
 ####Installing PyMongo
 <pre>$ sudo pip install pymongo</pre>
 
 ###MongoDB
-#### OS X
+#### macOS
 <pre>$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew install mongodb
 $ sudo mkdir -p /data/db
@@ -47,10 +50,10 @@ enabled=1</pre>
 
 ###[bcrypt](https://github.com/dstufft/bcrypt/)
 
-####OS X
+####macOS
 <pre>$ brew install pkg-config libffi
 $ export PKG_CONFIG_PATH=/usr/local/[YOUR_USERNAME]/libffi/3.0.13/lib/pkgconfig/
-$ pip install bcrypt</pre>
+$ sudo pip install bcrypt</pre>
 ####CentOS/RHEL/Fedora/Ubuntu
 <pre>$ sudo pip install bcrypt</pre>
 
@@ -60,7 +63,7 @@ $ pip install bcrypt</pre>
   - On Linux, type following
 <pre>$ sudo chkconfig mongod on
 $ sudo service mongod start</pre>
-  - On OS X, type following
+  - On macOS type following
 <pre>$ mongod</pre>
  - Now, type following in your working directory on another terminal
 <pre>$ python web.py</pre>
