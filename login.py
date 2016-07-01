@@ -3,7 +3,6 @@
 
 from flask import session, request, redirect
 from functional import newrender
-from flask import session, request
 
 import dbhandler
 import bcrypt
