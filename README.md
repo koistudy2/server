@@ -60,11 +60,24 @@ $ sudo pip install bcrypt</pre>
 ----------
 ##Let's run!
  - You have to start mongod first
-  - On Linux, type following
+   - On Linux, type following
 <pre>$ sudo chkconfig mongod on
 $ sudo service mongod start</pre>
-  - On macOS type following
+   - On macOS, type following
 <pre>$ mongod</pre>
  - Now, type following in your working directory on another terminal
 <pre>$ python web.py</pre>
  - Type http://localhost:5000 in your browser and watch what happens
+
+## For Windows User
+ - You have to install virtualenv [Documentation](http://timmyreilly.azurewebsites.net/python-flask-windows-development-environment-setup/)
+<pre>> pip install virtualenv
+> pip install virtualenvwrapper-win</pre>
+ - Create virtualenv
+<pre>> mkvirtualenv koistudy2
+> set projectdir .</pre>
+ - Now install flask
+<pre>> pip install flask </pre>
+ - Run
+<pre>> python web.py </pre>
+ - Type http://127.0.0.1:5000 in your browser and watch what happens
