@@ -75,7 +75,7 @@ $ sudo service mongod start</pre>
 > pip install virtualenvwrapper-win</pre>
  - Create virtualenv
 <pre>> mkvirtualenv koistudy2
-> set projectdir .</pre>
+> setprojectdir .</pre>
  - Now install flask
 <pre>> pip install flask </pre>
  - Run
