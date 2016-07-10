@@ -2,7 +2,7 @@
 import re
 
 lang = {}
-with open('./lang.txt') as f:
+with open('./lang.txt', encoding='UTF-8') as f:
 	lines = f.readlines()
 for line in lines:
 	each = re.match('([^.]+)\.([^=]+)=(.*)\n', line)
