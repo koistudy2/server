@@ -29,48 +29,48 @@ def signup_submit():
 	if not result['success']:
 		return newrender("title_signup", filename='basic_display.html', mode='signup_err_captcha')
 	else:
-		if re.match(u'^[a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣぁ-ゔァ-ヴー々〆〤0-9_\\-.]{4,20}$', request.form['username']):
-			if re.match('^.{6,200}$', request.form['password']):
-				if request.form['password'] == request.form['password_re']:
-					if re.match(u'^[가-힣A-Za-zぁ-ゔァ-ヴー々〆〤 ]{2,30}$', request.form['name']):
-						if re.match('^[a-zA-Z._+\\-0-9]+@[a-z0-9.\\-]+\\.[a-z]{2,5}$', request.form['email']):
-							import dbhandler
-							try:
-								idchecker = dbhandler.col_members.find_one({"username": request.form['username']})
-								if idchecker['username']:
-									return newrender("title_signup", filename='basic_display.html', mode='signup_err_iddup')
-							except TypeError:
-								try:
-									emailchecker = dbhandler.col_members.find_one({"email": request.form['email']})
-									if emailchecker['username']:
-										return newrender("title_signup", filename='basic_display.html', mode='signup_err_emaildup')
-								except TypeError:
-									import bcrypt
-									activation_link = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(16))
-									locale = session['locale']
-									human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'].encode('UTF-8'), bcrypt.gensalt(configs.bcrypt_round)), "name": request.form['name'], "nickname": request.form['nickname'], "email": request.form['email'], 'activated': False, 'activation_link': activation_link, 'locale': locale}
-									msg = MIMEText(render_template('email.txt', link=configs.default_url + '/confirm/' + activation_link).encode('utf-8'), 'html', 'utf-8')
-									msg['Subject'] = Header(lang.lang[session['locale']]['signup_welcome'], 'utf-8')
-									msg['From'] = configs.gmail_id + '@gmail.com'
-									msg['To'] = request.form['email']
-									s = SMTP_SSL('smtp.gmail.com', 465, timeout=10)
-									s.set_debuglevel(1)
-									#try:
-									s.login(configs.gmail_id, configs.gmail_pw)
-									s.sendmail(msg['From'], msg['To'], msg.as_string())
-									s.quit()
-									dbhandler.col_members.insert_one(human)
-									return newrender('title_signup', filename='basic_display.html', mode='signup_complete')
-						else:
-							return newrender("title_signup", filename='basic_display.html', mode='signup_err_email')
-					else:
-						return newrender("title_signup", filename='basic_display.html', mode='signup_err_name')
-				else:
-					return newrender("title_signup", filename='basic_display.html', mode='signup_err_pwmatch')
-			else:
-				return newrender("title_signup", filename='basic_display.html', mode='signup_err_password')
-		else:
+		if not re.match(u'^[a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣぁ-ゔァ-ヴー々〆〤0-9_\\-.]{4,20}$', request.form['username']):
 			return newrender("title_signup", filename='basic_display.html', mode='signup_err_username')
+
+		if not re.match('^.{6,200}$', request.form['password']):
+			return newrender("title_signup", filename='basic_display.html', mode='signup_err_password')
+
+		if request.form['password'] != request.form['password_re']:
+			return newrender("title_signup", filename='basic_display.html', mode='signup_err_pwmatch')
+
+		if not re.match(u'^[가-힣A-Za-zぁ-ゔァ-ヴー々〆〤 ]{2,30}$', request.form['name']):
+			return newrender("title_signup", filename='basic_display.html', mode='signup_err_name')
+
+		if re.match('^[a-zA-Z._+\\-0-9]+@[a-z0-9.\\-]+\\.[a-z]{2,5}$', request.form['email']):
+			return newrender("title_signup", filename='basic_display.html', mode='signup_err_email')
+
+		import dbhandler
+		try:
+			idchecker = dbhandler.col_members.find_one({"username": request.form['username']})
+			if idchecker['username']:
+				return newrender("title_signup", filename='basic_display.html', mode='signup_err_iddup')
+		except TypeError:
+			try:
+				emailchecker = dbhandler.col_members.find_one({"email": request.form['email']})
+				if emailchecker['username']:
+					return newrender("title_signup", filename='basic_display.html', mode='signup_err_emaildup')
+			except TypeError:
+				import bcrypt
+				activation_link = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(16))
+				locale = session['locale']
+				human = {"username": request.form['username'], "password": bcrypt.hashpw(request.form['password'].encode('UTF-8'), bcrypt.gensalt(configs.bcrypt_round)), "name": request.form['name'], "nickname": request.form['nickname'], "email": request.form['email'], 'activated': False, 'activation_link': activation_link, 'locale': locale}
+				msg = MIMEText(render_template('email.txt', link=configs.default_url + '/confirm/' + activation_link).encode('utf-8'), 'html', 'utf-8')
+				msg['Subject'] = Header(lang.lang[session['locale']]['signup_welcome'], 'utf-8')
+				msg['From'] = configs.gmail_id + '@gmail.com'
+				msg['To'] = request.form['email']
+				s = SMTP_SSL('smtp.gmail.com', 465, timeout=10)
+				s.set_debuglevel(1)
+				#try:
+				s.login(configs.gmail_id, configs.gmail_pw)
+				s.sendmail(msg['From'], msg['To'], msg.as_string())
+				s.quit()
+				dbhandler.col_members.insert_one(human)
+				return newrender('title_signup', filename='basic_display.html', mode='signup_complete')
 
 def confirm(path):
 	import dbhandler
